@@ -11,6 +11,9 @@ async function comingSoon() {
     await setTimeout(() => {
         setIdDisplay("landing-text", "none");
     }, 10000);
+    await setTimeout(() => {
+        window.location.href = "links.html";
+    }, 10500);
 }
 
 function setIdDisplay(Id, display) {
