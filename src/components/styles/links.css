@@ -6,6 +6,7 @@
 .page-summary{
     margin-top: 50px;
     font-size: 14px;
+    width: 380px;
     color: white;
 }
 
@@ -13,8 +14,9 @@
     display: flex;
     padding: 20px;
     border-radius: 50px;
-    width: 400px;
-    margin-top: 30px;
+    max-width: 300px;
+    min-width: 250px; 
+    margin-top: 25px;
 }
 
 a.link-preview, a.link-preview:link, a.link-preview:visited {
@@ -40,7 +42,8 @@ a.link-preview:hover, a.link-preview:active{
 }
 
 .link-header{
-    width: 300px;
+    max-width: 300px;
+    min-width: 200px;
     font-size: 18px;
     font-weight: bold;
     text-align: center;
@@ -50,6 +53,7 @@ a.link-preview:hover, a.link-preview:active{
 .link-image{
     width: 40px;
     margin-right: 200px;
+    margin-top: -2px;
     background-color: white;
     border-radius: 50px;
     border: solid white 3px;
@@ -81,10 +85,10 @@ a.link-button:hover, a.link-button:active{
 
 footer{
     position: fixed;
-    bottom: 0px;
-    width: 100%;
+    bottom: 10px;
+    width: 98%;
+    color: white;
     background-color: black;
     text-align: right;
-    margin-right: -10pt;
-    font-size: 11px;
+    font-size: 10px;
 }
