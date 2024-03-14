@@ -1,19 +1,19 @@
 async function comingSoon() {
     await setTimeout(() => {
         setIdDisplay("landing-image", "block");
-    }, 1000);
+    }, 500);
     await setTimeout(() => {
         setIdDisplay("landing-text", "block");
-    }, 5000);
+    }, 2000);
     await setTimeout(() => {
         setIdDisplay("landing-image", "none");
-    }, 10000);
+    }, 4000);
     await setTimeout(() => {
         setIdDisplay("landing-text", "none");
-    }, 10000);
+    }, 4000);
     await setTimeout(() => {
         window.location.href = "links.html";
-    }, 10500);
+    }, 4500);
 }
 
 function setIdDisplay(Id, display) {
