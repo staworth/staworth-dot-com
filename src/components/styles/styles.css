@@ -2,6 +2,12 @@
     background: black;
 }
 
+*{
+    font-family:Arial, Helvetica, sans-serif;
+    margin: auto;
+    background: black;
+}
+
 #landing-container{
     margin-top: 30vh;
     margin-bottom: 30vh;
@@ -25,4 +31,15 @@
     margin-left: 10%;
     margin-right: 10%;
     display: none;
+}
+
+footer{
+    position: fixed;
+    margin-top: 50px;
+    bottom: 10px;
+    width: 98%;
+    color: white;
+    background-color: black;
+    text-align: right;
+    font-size: 10px;
 }

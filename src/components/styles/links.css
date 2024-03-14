@@ -1,6 +1,7 @@
 *{
     font-family:Arial, Helvetica, sans-serif;
     margin: auto;
+    background: black;
 }
 
 .page-summary{
@@ -84,7 +85,8 @@ a.link-button:hover, a.link-button:active{
 }
 
 footer{
-    position: fixed;
+    position: relative;
+    margin-top: 80px;
     bottom: 10px;
     width: 98%;
     color: white;
