@@ -1,0 +1,12 @@
+{
+  "name": "staworth-dot-com",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Staworth/staworth-dot-com.git",
+  "author": "jackgale.eth <jack.gale@icloud.com>",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "web3": "^4.11.1"
+  }
+}

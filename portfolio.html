@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staworth - Portfolio</title>
+    <link rel="stylesheet" href="src/components/styles/style.css">
+    <script src="src/components/scripts/site.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato&display=swap">  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="src/components/scripts/site.js"></script>
+</head>
+<body onload="spinLoader()" style="background-color: black">
+    <div id="loader"></div>
+
+    <nav class="navbar navbar-expand-lg" style="position: fixed; z-index: 2; padding-left: 25%; width: 100%; height: 50px; background-color: black">
+        <a class="navbar-brand" aria-current="page" href="index.html" style="position: fixed">
+            <img class="navbar-title" src="src/images/logos/Staworth_103_30_Black_Close.png">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon">⬇</span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar" style="position: fixed; margin-left: 250px;">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="presence.html">Presence</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="portfolio.html">Portfolio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="products.html">Products</a>
+                </li>    
+        </ul>
+        </div>  
+    </nav>
+
+    <div>
+        <p class="spacer" style="padding-top: 40px;">_</p>
+    </div>
+
+    <div class="page-summary" style="text-align: center; max-width: 500px;">
+        <p style="font-size: 24px; font-weight:bolder">Our Portfolio</p>
+        <p>Check out the digital communities that we serve and invest in. See transparently what financial interests Staworth holds, and access our governance records.</p>
+    </div>
+
+    <div class="portfolio">
+        <div class="title" id="portfolio-headings">
+            <div style="width: 800px; background-color: black">
+                <div class="section-summary" style="max-width: 750px;">
+                    <p style="font-size: 18px; text-align: center; color: white; font-weight:bolder">Governance Tokens</p>
+                </div>
+            </div>
+        </div>
+        <div class="portfolio-preview" id="portfolio-headings">
+            <div class="portfolio-row">
+                <div class = "portfolio-column" id="logo-heading"></div>
+                <div class = "portfolio-column" id="name-heading">Name</div>
+                <div class = "portfolio-column" id="publications-heading">Publications</div>
+                <div class = "portfolio-column" id="balance-heading">Balance</div>
+                <div class = "portfolio-column" id="value-heading">Value ($USD)</div>
+            </div>
+        </div>
+        <div class="portfolio-preview">
+            <div class="portfolio-row">
+                <div class = "portfolio-column">
+                    <img class="portfolio-image" src="src/images/portfolio/bifi-token.png">
+                </div>
+                <div class="portfolio-column">
+                    <div class="portfolio-name">
+                        <a class="portfolio-name-link" href="https://beefy.com/">Beefy</a>
+                    </div>
+                </div>
+                <div class="portfolio-column">
+                    <div class="portfolio-links">
+                        <a class="portfolio-link" href="">Thesis</a>
+                        <p class="portfolio-link"></p>
+                        <a class="portfolio-link" href="">Platform</a>
+                    </div>
+                </div>
+                <div class="portfolio-column">
+                    <div class="portfolio-balance">
+                    <a class="portfolio-data" id="bifi-balance" href="https://optimistic.etherscan.io/token/0x57d00d036485b5fee6a58c8763bdc358906e6d19?a=0x72E7197DA72FbC51828fa82CBa8683Bf0B6acf5e">Q.QQ</a>
+                    <script>
+                        fetch("src/components/data/portfolio.json")
+                            .then(response => response.json())
+                            .then(json => document.getElementById("bifi-balance").innerHTML=(json["bifi"]["balance"]))
+                    </script>
+                    </div>
+                </div>
+                <div class="portfolio-column">
+                    <div class="portfolio-value">
+                        <a class="portfolio-data" id="bifi-value" href="https://debank.com/profile/0x72E7197DA72FbC51828fa82CBa8683Bf0B6acf5e">$x,xxx.xx</a>
+                        <script>
+                            fetch("src/components/data/portfolio.json")
+                                .then(response => response.json())
+                                .then(json => document.getElementById("bifi-value").innerHTML="$"+(json["bifi"]["value"]).toLocaleString())
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="portfolio-preview">
+            <div class="portfolio-row">
+                <div class = "portfolio-column">
+                    <img class="portfolio-image" src="src/images/portfolio/gno-token.png">
+                </div>
+                <div class="portfolio-column">
+                    <div class="portfolio-name">
+                        <a class="portfolio-name-link" href="https://www.gnosis.io/gnosisdao">Gnosis</a>
+                    </div>
+                </div>
+                <div class="portfolio-column">
+                    <div class="portfolio-links">
+                        <a class="portfolio-link">Thesis</a>
+                        <p></p>
+                        <a class="portfolio-link" href="https://forum.gnosis.io/t/staworth-jackgale-eth-delegate-platform/8770">Platform</a>
+                    </div>
+                </div>
+                <div class="portfolio-column">
+                    <div class="portfolio-balance">
+                    <a class="portfolio-data" id="gno-balance" href="https://etherscan.io/token/0x6810e776880c02933d47db1b9fc05908e5386b96?a=0x72E7197DA72FbC51828fa82CBa8683Bf0B6acf5e">Q.QQ</a>
+                    <script>
+                        fetch("src/components/data/portfolio.json")
+                            .then(response => response.json())
+                            .then(json => document.getElementById("gno-balance").innerHTML=(json["gno"]["balance"]))
+                    </script>
+                    </div>
+                </div>
+                <div class="portfolio-column">
+                    <div class="portfolio-value">
+                    <a class="portfolio-data" id="gno-value" href="https://debank.com/profile/0x72E7197DA72FbC51828fa82CBa8683Bf0B6acf5e">$x,xxx.xx</a>
+                    <script>
+                        fetch("src/components/data/portfolio.json")
+                            .then(response => response.json())
+                            .then(json => document.getElementById("gno-value").innerHTML="$"+(json["gno"]["value"]).toLocaleString())
+                    </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <p class="spacer" style="padding-top: 0px;">_</p>
+    </div>
+
+    <div class="portfolio">
+        <div class="title" id="portfolio-headings">
+            <div style="width: 800px; background-color: black">
+                <div class="section-summary" style="max-width: 750px;">
+                    <p style="font-size: 18px; text-align: center; color: white; font-weight:bolder">Other Assets</p>
+                </div>
+            </div>
+        </div>
+        <div class="portfolio-preview" id="portfolio-headings">
+            <div class="portfolio-row">
+                <div class = "portfolio-column" id="logo-heading"></div>
+                <div class = "portfolio-column" id="name-heading">Name</div>
+                <div class = "portfolio-column" id="publications-heading">Publications</div>
+                <div class = "portfolio-column" id="balance-heading">Balance</div>
+                <div class = "portfolio-column" id="value-heading">Value ($USD)</div>
+            </div>
+        </div>
+        <div class="portfolio-preview">
+            <div class="portfolio-row">
+                <div class = "portfolio-column">
+                    <img class="portfolio-image" src="src/images/portfolio/eth-token.png">
+                </div>
+                <div class="portfolio-column">
+                    <div class="portfolio-name">
+                        <p class="portfolio-name-link" style="padding-top:18px;">Ether</p>
+                    </div>
+                </div>
+                <div class="portfolio-column">
+                    <div class="portfolio-links">
+                        <a class="portfolio-link"></a>
+                    </div>
+                </div>
+                <div class="portfolio-column">
+                    <div class="portfolio-balance">
+                        <a class="portfolio-data" id="eth-balance" href="https://debank.com/profile/0x72E7197DA72FbC51828fa82CBa8683Bf0B6acf5e"></script>
+                        <script>
+                            fetch("src/components/data/portfolio.json")
+                                .then(response => response.json())
+                                .then(json => document.getElementById("eth-balance").innerHTML=(json["eth"]["balance"]))
+                        </script>
+                    </div>
+                </div>
+                <div class="portfolio-column">
+                    <div class="portfolio-value">
+                        <a class="portfolio-data" id="eth-value" href="https://debank.com/profile/0x72E7197DA72FbC51828fa82CBa8683Bf0B6acf5e">$x,xxx.xx</a>
+                        <script>
+                            fetch("src/components/data/portfolio.json")
+                                .then(response => response.json())
+                                .then(json => document.getElementById("eth-value").innerHTML="$"+(json["eth"]["value"]).toLocaleString())
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <p class="spacer" style="padding-top: 0px;">_</p>
+    </div>
+
+    <div class="portfolio">
+        <div class="portfolio-preview">
+            <div class="portfolio-row">
+                <div class = "portfolio-column">
+                    <p style="height: 40px; width: 65px"></p>
+                </div>
+                <div class="portfolio-column">
+                    <div class="portfolio-name">
+                        <p class="portfolio-name-link" style="padding-top:18px; font-weight: bold">Grand Total</p>
+                    </div>
+                </div>
+                <div class="portfolio-column">
+                    <div class="portfolio-links">
+                        <a class="portfolio-link"></a>
+                    </div>
+                </div>
+                <div class="portfolio-column">
+                    <div class="portfolio-balance">
+                        <a class="portfolio-data" id="total-balance"></script>
+                    </div>
+                </div>
+                <div class="portfolio-column">
+                    <div class="portfolio-value">
+                        <a class="portfolio-data" id="total-value" href="https://debank.com/profile/0x72E7197DA72FbC51828fa82CBa8683Bf0B6acf5e" style="font-weight: bold">$x,xxx.xx</a>
+                        <script>
+                            fetch("src/components/data/portfolio.json")
+                                .then(response => response.json())
+                                .then(json => document.getElementById("total-value").innerHTML="$"+(json["total"]["value"]).toLocaleString())
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <p class="spacer" style="padding-bottom: 100px;">_</p>
+    </div>
+
+    <footer>
+        <p>Copyright © 2024 Staworth Limited</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,481 @@
+*{
+    font-family:Arial, Helvetica, sans-serif;
+    margin: auto;
+}
+
+html{
+    height: 100%;
+    width: 100%;
+}
+
+body{
+    min-height: 100%;
+    max-width: 100%;
+}
+
+ul{
+    text-align: justify;
+    margin-left: -17px;
+}
+
+li{
+    text-align: justify;
+    font-weight: normal;
+    margin-left: 0px;
+}
+
+h1{
+    text-align:center;
+    font-weight:bolder;
+    margin-bottom: 50px;
+    letter-spacing: 1px;
+}
+
+h2{
+    letter-spacing: 5px;
+    color: white;
+}
+
+#loader {
+    position: absolute;
+    left: 100vw;
+    top: 15vh;
+    z-index: 1;
+    width: 50px;
+    height: 50px;
+    margin: -100px 0 0 -100px;
+    border: 10px solid #cccccc21;
+    border-radius: 50%;
+    border-top: 10px solid #03a70b;
+    animation: spin 0.75s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.navbar{
+    background-color: black;
+    opacity: 1;
+}
+
+.navbar-title{
+
+    height: 50px;
+}
+
+.navbar-toggler, .navbar-toggler:link, .navbar-toggler:visited{
+    position: fixedright;
+    margin-right: 30%;
+    margin-left:62%;
+    height: 25px;
+    width: 0px;
+    background-color: black;
+    border: solid 2px white !important;
+    border-radius: 100px  !important;
+}
+
+.navbar-toggler:hover, .navbar-toggler:active{
+    border: solid 2px #03a70b !important;
+}
+
+.navbar-toggler-icon, .navbar-toggler-icon:link, .navbar-toggler-icon:visited{
+    font-size: 13px; 
+    margin-left: -10px; 
+    color: white
+}
+
+.navbar-toggler-icon:hover, .navbar-toggler-icon:active{
+    color: #03a70b
+}
+
+.navbar-collapse{
+    position: fixed;
+    background: black;
+    padding-left: 10%;
+    border-radius: 50px;
+}
+
+.nav-item{
+    width: 150px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.nav-link{
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+@media screen and (max-width: 991px) {
+    #collapsibleNavbar{
+        width: 50vw;
+        margin-top: 150px;
+    }
+
+    .nav-link{
+        width: 50vw;
+        margin-left: -140%;
+        text-align: right;
+    }
+}
+
+a.navbar-brand, a.nav-link, a.navbar-brand:link, a.nav-link:link, a.navbar-brand:visited, a.nav-link:visited, a.navbar-brand:hover, a.nav-link:hover, a.navbar-brand:active, a.nav-link:active{
+    text-decoration: none !important;
+    color: white;
+}
+
+a.navbar-brand:hover, a.nav-link:hover, a.navbar-brand:active, a.nav-link:active{
+    text-decoration: none !important;
+    color: #03a70b;
+}
+
+.achievements{
+    max-width: 715px;
+    text-align: justify;
+    font-size: 11px;
+}
+
+.page-summary{
+    color: white;
+}
+
+.blog-preview{
+    display: flex;
+    background-color: #cccccc21;
+    margin: auto;
+    padding: 20px;
+    border-radius: 50px;
+    width: 850px;
+    margin-bottom: 35px;
+    border: solid white 1px;
+}
+
+.blog-preview, .blog-preview:link, .blog-preview:visited{
+    border: solid white 2px;
+}
+
+.blog-preview:hover, .blog-preview:active{
+    border: solid #03a70b 2px;
+}
+
+.blog-row{
+    display: flex;
+}
+
+.blog-link{
+    padding: 10px;
+}
+
+a.blog-link, a.blog-link:link, a.blog-link:visited{
+    color: white;
+    text-decoration: none !important;
+}
+
+a.blog-link:hover, a.blog-link:active{
+    color: white;
+    text-decoration: none !important;
+}
+
+.blog-column{
+    flex: 50%;
+    margin-right:10px;
+    width: 50%
+}
+
+.blog-header{
+    vertical-align: top;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.blog-category{
+    text-align: center;
+    background-color: black;
+    font-size: 10px;
+    margin-right: 60%;
+    padding: 5px;
+    border-radius: 10px;
+    color: white;
+}
+
+.blog-date{
+    text-align: left;
+    padding-left: 20px;
+    text-decoration: underline;
+    font-size: 14px;
+}
+
+.blog-description{
+    text-align: justify;
+    font-size: 14px;
+    background-color: black;
+    border-radius: 30px;
+    height: 100px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border: solid white 1px;
+}
+
+.blog-image{
+    width: 425px;
+    min-height: 220px;
+    max-height: 240px;
+    object-fit: cover;
+    max-width: 100%;
+    border-radius: 30px;
+    margin: auto;
+    border: solid white 1px;
+}
+
+.link-preview{
+    display: flex;
+    background: black;
+    color: white;
+    padding: 20px;
+    border-radius: 50px;
+    width: 400px;
+    margin-top: 20px;
+}
+
+a.link-preview, a.link-preview:link, a.link-preview:visited {
+    color: white;
+    border: solid white 2px;
+}
+
+a.link-preview:hover, a.link-preview:active{
+    color: white;
+    border: solid #03a70b 2px;
+}
+
+.link-row{
+    display: flex;
+    height: 40px;
+}
+
+.link-column{
+    flex: 50%;
+    float: left;
+    margin-right:10px;
+    height: 40px;
+}
+
+.link-header{
+    width: 300px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    transform: translateY(20%)
+}
+
+.link-image{
+    width: 40px;
+    margin-right: 200px;
+    background-color: white;
+    border-radius: 50px;
+    padding: 1px;
+    border: solid white 1px;
+}
+
+.portfolio{
+    background: transparent; 
+    width: 840px;
+    padding: 20px;
+    border-radius: 20px;
+    border: solid white 1px;
+}
+
+.portfolio-preview{
+    text-align: center;
+    display: flex;
+    background: #cccccc21;
+    margin: auto;
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 800px;
+    border: solid white 1px;
+}
+
+.portfolio-row{
+    display: flex;
+}
+
+#portfolio-headings{
+    text-align: center;
+    background-color: #cccccc40;
+    font-weight: bold;
+}
+
+#logo-heading{
+    min-width: 65px;
+}
+
+#name-heading{
+    min-width: 150px;
+}
+
+#publications-heading{
+    min-width: 150px;
+}
+
+#balance-heading{
+    min-width: 150px;
+}
+
+#value-heading{
+    min-width: 150px;
+}
+
+.portfolio-column{
+    text-align: center;
+    max-width: 300px;
+    flex: 50%;
+    color: white;
+}
+
+.portfolio-image{
+    width: 65px;
+    color: black;
+    background-color: white;
+    border-radius: 50px;
+    padding: 1px;
+}
+
+.portfolio-name{
+    min-width: 150px;
+}
+
+.portfolio-name-link{
+}
+
+a.portfolio-name-link, a.portfolio-name-link:link, a.portfolio-name-link:visited{
+    color: white;
+    text-decoration: none !important;
+}
+
+a.portfolio-name-link:hover, a.portfolio-name-link:active{
+    color: #03a70b;
+    text-decoration: none !important;
+}
+
+.portfolio-links{
+    min-width: 150px;
+}
+
+.portfolio-link{
+}
+
+a.portfolio-link, a.portfolio-link:link, a.portfolio-link:visited{
+    color: white;
+    text-decoration: none !important;
+}
+
+a.portfolio-link:hover, a.portfolio-link:active{
+    color: #03a70b;
+    text-decoration: none !important;
+}
+
+.portfolio-data{
+}
+
+a.portfolio-data, a.portfolio-data:link, a.portfolio-data:visited{
+    color: white;
+    text-decoration: none !important;
+}
+
+a.portfolio-data:hover, a.portfolio-data:active{
+    color: #03a70b;
+    text-decoration: none !important;
+}
+
+.portfolio-balance{
+    min-width: 150px;
+}
+
+.portfolio-value{
+    width: 150px;
+}
+
+.row {
+    display: flex;
+}
+
+.arrow{
+    text-align: center; 
+    font-size: 50px;    
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+    color: white; 
+    margin-bottom: 400px"
+}
+
+.jump-arrow{
+    height: 500px;
+}
+
+.column {
+    width: 25vh;
+    flex: 50%;
+}
+
+.centre-image-div{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1000px;
+}
+
+.centre-image-link{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1000px;
+}
+
+.centre-image{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 450px; 
+    border-radius: 100px; 
+    float: right;
+}
+
+.link-button{
+    border: solid white 1px;
+    padding-right: 20px; 
+    padding-left: 20px; 
+    padding-top:10px; 
+    padding-bottom:10px; 
+    border-radius: 20px; 
+    width: 100px; 
+    text-align: center; 
+    font-size: 14px; 
+    margin-bottom: 400px; 
+    margin-right: 300px
+}
+
+a.link-button, a.link-button:link, a.link-button:visited{
+    text-decoration: none !important;
+    color: white;
+}
+
+a.link-button:hover, a.link-button:active{
+    text-decoration: none !important;
+    color: #03a70b;
+}
+
+footer{
+    position: fixed;
+    bottom: -10px;
+    width: 100%;
+    background-color:black;
+    color: white;
+    text-align: right;
+    padding-right: 10pt;
+    font-size: 11px;
+}

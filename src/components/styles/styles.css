@@ -1,11 +1,12 @@
 *{
     background: black;
-}
-
-*{
     font-family:Arial, Helvetica, sans-serif;
     margin: auto;
-    background: black;
+}
+
+html{
+    height: 100%;
+    width: 100%;
 }
 
 #landing-container{
@@ -36,11 +37,11 @@
 
 footer{
     position: fixed;
-    margin-top: 50px;
-    bottom: 10px;
-    width: 98%;
+    bottom: -10px;
+    width: 100%;
+    background-color:black;
     color: white;
-    background-color: black;
     text-align: right;
-    font-size: 10px;
+    padding-right: 10pt;
+    font-size: 11px;
 }
