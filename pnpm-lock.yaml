@@ -24,6 +24,9 @@ importers:
       '@types/react':
         specifier: 19.2.7
         version: 19.2.7
+      '@types/ws':
+        specifier: ^8.5.13
+        version: 8.18.1
       typescript:
         specifier: ^5.7.3
         version: 5.9.3
@@ -229,6 +232,9 @@ packages:
 
   '@types/react@19.2.7':
     resolution: {integrity: sha512-MWtvHrGZLFttgeEj28VXHxpmwYbor/ATPYbBfSFZEIRK0ecCFLl2Qo55z52Hss+UV9CRN7trSeq1zbgx7YDWWg==}
+
+  '@types/ws@8.18.1':
+    resolution: {integrity: sha512-ThVF6DCVhA8kUGy+aazFQ4kXQ7E1Ty7A3ypFOe0IcJV8O/M511G99AW24irKrW56Wt44yG9+ij8FaqoBGkuBXg==}
 
   baseline-browser-mapping@2.9.11:
     resolution: {integrity: sha512-Sg0xJUNDU1sJNGdfGWhVHX0kkZ+HWcvmVymJbj6NSgZZmW/8S9Y2HQ5euytnIgakgxN6papOAWiwDo1ctFDcoQ==}
@@ -470,6 +476,10 @@ snapshots:
   '@types/react@19.2.7':
     dependencies:
       csstype: 3.2.3
+
+  '@types/ws@8.18.1':
+    dependencies:
+      '@types/node': 22.19.3
 
   baseline-browser-mapping@2.9.11: {}
 
