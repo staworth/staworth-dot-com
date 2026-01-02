@@ -4,7 +4,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Staworth',
-  description: 'Digital organization focused on governance and community involvement',
+  description: 'Staunch advocacy for digital communities.',
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
