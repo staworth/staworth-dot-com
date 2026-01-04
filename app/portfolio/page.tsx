@@ -8,42 +8,10 @@ import PageSummary from "../../src/components/page-general/PageSummary";
 import AssetsTable from "../../src/components/page-specific/AssetsTable";
 import Loader from "../../src/components/page-general/Loader";
 
-// Constants for table data configuration
-const GOVERNANCE_TOKENS_CONFIG = [
-  {
-    key: "bifi",
-    img: "/images/portfolio/bifi-token.png",
-    name: "Beefy",
-    nameUrl: "https://beefy.com/",
-    thesisUrl: "",
-    delegateUrl: "",
-    balanceUrl: "https://optimistic.etherscan.io/token/0x57d00d036485b5fee6a58c8763bdc358906e6d19?a=0x72E7197DA72FbC51828fa82CBa8683Bf0B6acf5e",
-    valueUrl: "https://debank.com/profile/0x72E7197DA72FbC51828fa82CBa8683Bf0B6acf5e",
-  },
-  {
-    key: "gno",
-    img: "/images/portfolio/gno-token.png",
-    name: "Gnosis",
-    nameUrl: "https://www.gnosis.io/",
-    thesisUrl: "",
-    delegateUrl: "https://forum.gnosis.io/t/staworth-jackgale-eth-delegate-platform/8770",
-    balanceUrl: "https://etherscan.io/token/0x6810e776880c02933d47db1b9fc05908e5386b96?a=0x72E7197DA72FbC51828fa82CBa8683Bf0B6acf5e",
-    valueUrl: "https://debank.com/profile/0x72E7197DA72FbC51828fa82CBa8683Bf0B6acf5e",
-  },
-];
-
-const OTHER_ASSETS_CONFIG = [
-  {
-    key: "eth",
-    img: "/images/portfolio/eth-token.png",
-    name: "Ether",
-    nameUrl: "",
-    thesisUrl: "",
-    delegateUrl: "",
-    balanceUrl: "https://debank.com/profile/0x72E7197DA72FbC51828fa82CBa8683Bf0B6acf5e",
-    valueUrl: "https://debank.com/profile/0x72E7197DA72FbC51828fa82CBa8683Bf0B6acf5e",
-  },
-];
+// Configuration for delegate platforms (not provided by API)
+const DELEGATE_PLATFORMS: Record<string, string> = {
+  gno: "https://forum.gnosis.io/t/staworth-jackgale-eth-delegate-platform/8770",
+};
 
 export default function PortfolioPage() {
   const [data, setData] = useState(null);
@@ -94,18 +62,36 @@ export default function PortfolioPage() {
     return <Loader />;
   }
 
-  // Map config to rows with actual data
-  const governanceTokensRows = GOVERNANCE_TOKENS_CONFIG.map(config => ({
-    ...config,
-    balance: data[config.key].balance,
-    value: data[config.key].value,
-  }));
+  // Categorize positions by type
+  const governanceTokensRows: any[] = [];
+  const defiPositionsRows: any[] = [];
+  const coreAssetsRows: any[] = [];
 
-  const otherAssetsRows = OTHER_ASSETS_CONFIG.map(config => ({
-    ...config,
-    balance: data[config.key].balance,
-    value: data[config.key].value,
-  }));
+  Object.entries(data.positions).forEach(([key, position]: [string, any]) => {
+    const row = {
+      key,
+      img: position.img || "/logos/Staworth_1_1_Black.png",
+      name: position.name || key,
+      nameUrl: position.url || "",
+      thesisUrl: "",
+      delegateUrl: DELEGATE_PLATFORMS[key] || "",
+      balance: position.balance,
+      value: position.value,
+    };
+
+    if (position.type === 'governance') {
+      governanceTokensRows.push(row);
+    } else if (position.type === 'defi') {
+      defiPositionsRows.push(row);
+    } else {
+      coreAssetsRows.push(row);
+    }
+  });
+
+  // Sort rows by value (descending)
+  [governanceTokensRows, defiPositionsRows, coreAssetsRows].forEach(rows => {
+    rows.sort((a, b) => b.value - a.value);
+  });
 
   return (
     <div className="portfolio-page">
@@ -123,9 +109,16 @@ export default function PortfolioPage() {
         </div>
 
         <div className="portfolio-card">
-          <p className="portfolio-card-title">Other Assets</p>
+          <p className="portfolio-card-title">DeFi Positions</p>
           <div className="portfolio-card-inner">
-            <AssetsTable rows={otherAssetsRows} />
+            <AssetsTable rows={defiPositionsRows} />
+          </div>
+        </div>
+
+        <div className="portfolio-card">
+          <p className="portfolio-card-title">Core Assets</p>
+          <div className="portfolio-card-inner">
+            <AssetsTable rows={coreAssetsRows} />
           </div>
         </div>
 
@@ -138,11 +131,9 @@ export default function PortfolioPage() {
                     img="/logos/Staworth_1_1_Black.png"
                     name="Portfolio"
                     balance=""
-                    balanceUrl={undefined}
                     thesisUrl={undefined}
                     delegateUrl={undefined}
                     value={data.total.value}
-                    valueUrl="https://debank.com/profile/0x72E7197DA72FbC51828fa82CBa8683Bf0B6acf5e"
                   />
                 </tbody>
               </table>

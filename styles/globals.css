@@ -64,7 +64,7 @@ body{
   display: block;
   width: 64px;
   height: 64px;
-  border: 16px solid #444;
+  border: 16px solid #cccccc21;
   border-top: 16px solid #03a70b;
   border-radius: 50%;
   animation: spin 1s linear infinite;
@@ -572,6 +572,9 @@ a.article-link:hover, a.article-link:active{
     font-weight: normal;
     transition: background 0.2s, border 0.2s, font-weight 0.2s;
 }
+.pagenav-btn:hover {
+    border-color: #03a70b;
+}
 .pagenav-prev {
     margin-right: 16px;
 }
@@ -736,9 +739,9 @@ a.portfolio-data:hover, a.portfolio-data:active{
 }
 
 .portfolio-section {
-    max-width: 800px;
+    max-width: 850px;
     margin: 40px auto;
-    padding: 0 20px;
+    padding: 0 20px 20px 20px;
 }
 
 .portfolio-card {
@@ -765,11 +768,12 @@ a.portfolio-data:hover, a.portfolio-data:active{
 }
 
 .asset-table {
-    width: 750px;
+    width: 100%;
     min-width: 600px;
     color: white;
     border-collapse: collapse;
-    font-size: 1rem;
+    font-size: 14px;
+    table-layout: fixed;
 }
 
 .asset-table thead tr {
@@ -795,12 +799,16 @@ a.portfolio-data:hover, a.portfolio-data:active{
 }
 
 .asset-table-cell-name {
-    width: 100px;
+    width: 30%;
     text-align: left;
+    overflow-x: auto;
+    white-space: nowrap;
 }
 
 .asset-table-cell-logo {
-    width: 100px;
+    width: 12.5%;
+    min-width: 50px;
+    max-width: 100px;
     text-align: center;
 }
 
@@ -809,17 +817,22 @@ a.portfolio-data:hover, a.portfolio-data:active{
 }
 
 .asset-table-cell-publications{
-    width: 100px;
+    width: 10%;
     text-align: center;
 }
 
 .asset-table-cell-balance {
-    width: 100px;
+    width: 10%;
     text-align: center;
+    overflow-x: auto;
+    white-space: nowrap;
 }
 
 .asset-table-cell-value {
+    width: 12.5%;
     text-align: center;
+    overflow-x: auto;
+    white-space: nowrap;
 }
 
 .asset-table tbody tr {
@@ -842,6 +855,10 @@ a.portfolio-data:hover, a.portfolio-data:active{
 
 .asset-table-total td {
     font-weight: bold;
+}
+
+.asset-table-total .asset-table-cell-value {
+    font-size: 14px;
 }
 
 .asset-table-total .portfolio-total-name {
@@ -896,7 +913,7 @@ a.portfolio-data:hover, a.portfolio-data:active{
 
 .portfolio-total-value {
     color: white;
-    font-size: 16px;
+    font-size: 140px;
     font-weight: bold;
     text-decoration: none;
     grid-column: 5;

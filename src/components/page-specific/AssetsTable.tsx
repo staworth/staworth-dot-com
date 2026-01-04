@@ -12,14 +12,14 @@ export default function AssetsTable({ rows }: AssetsTableProps) {
         <tr className="asset-table-row asset-table-row-head">
           <th className="asset-table-cell asset-table-cell-logo" />
           <th className="asset-table-cell asset-table-cell-name">Name</th>
-          <th className="asset-table-cell asset-table-cell-publications">References</th>
-          <th className="asset-table-cell asset-table-cell-balance">Balance</th>
           <th className="asset-table-cell asset-table-cell-value">Value</th>
+          <th className="asset-table-cell asset-table-cell-balance">Balance</th>
+          <th className="asset-table-cell asset-table-cell-publications">Links</th>
         </tr>
       </thead>
       <tbody>
         {rows.map((row, index) => (
-          <AssetTableRow key={index} img={row.img} name={row.name} nameUrl={row.nameUrl} thesisUrl={row.thesisUrl} delegateUrl={row.delegateUrl} balance={row.balance} balanceUrl={row.balanceUrl} value={row.value} valueUrl={row.valueUrl} />
+          <AssetTableRow key={index} img={row.img} name={row.name} nameUrl={row.nameUrl} thesisUrl={row.thesisUrl} delegateUrl={row.delegateUrl} balance={row.balance} value={row.value} />
         ))}
       </tbody>
     </table>

@@ -8,9 +8,7 @@ export interface AssetRowProps {
   thesisUrl?: string;
   delegateUrl?: string;
   balance: number | string;
-  balanceUrl?: string;
   value: number;
-  valueUrl?: string;
 }
 
 export default function AssetTableRow({
@@ -20,9 +18,7 @@ export default function AssetTableRow({
   thesisUrl,
   delegateUrl,
   balance,
-  balanceUrl,
   value,
-  valueUrl,
 }: AssetRowProps) {
   return (
     <tr className="asset-table-row">
@@ -40,15 +36,15 @@ export default function AssetTableRow({
       <td className="asset-table-cell asset-table-cell-name">
         {nameUrl ? <a href={nameUrl}>{name}</a> : name}
       </td>
+      <td className="asset-table-cell asset-table-cell-value">
+        ${Number(value).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+      </td>
+      <td className="asset-table-cell asset-table-cell-balance">
+        {typeof balance === 'number' ? balance.toLocaleString('en-US', { minimumFractionDigits: 3, maximumFractionDigits: 3 }) : balance}
+      </td>
       <td className="asset-table-cell asset-table-cell-publications asset-table-publications">
         {thesisUrl && <a href={thesisUrl}>Thesis</a>}
         {delegateUrl && <a href={delegateUrl}>Platform</a>}
-      </td>
-      <td className="asset-table-cell asset-table-cell-balance">
-        {balanceUrl ? <a href={balanceUrl}>{balance}</a> : balance}
-      </td>
-      <td className="asset-table-cell asset-table-cell-value">
-        {valueUrl ? <a href={valueUrl}>${Number(value).toLocaleString()}</a> : `$${Number(value).toLocaleString()}`}
       </td>
     </tr>
   );
