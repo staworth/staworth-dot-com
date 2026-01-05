@@ -70,7 +70,7 @@ export default function PortfolioPage() {
   Object.entries(data.positions).forEach(([key, position]: [string, any]) => {
     const row = {
       key,
-      img: position.img || "/logos/Staworth_1_1_Black.png",
+      img: position.img || "/logos/Staworth_1_1_Black.webp",
       name: position.name || key,
       nameUrl: position.url || "",
       thesisUrl: "",
@@ -128,7 +128,7 @@ export default function PortfolioPage() {
               <table className="asset-table asset-table-total">
                 <tbody>
                   <AssetTableRow
-                    img="/logos/Staworth_1_1_Black.png"
+                    img="/logos/Staworth_1_1_Black.webp"
                     name="Portfolio"
                     balance=""
                     thesisUrl={undefined}

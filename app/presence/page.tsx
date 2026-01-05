@@ -29,12 +29,17 @@ export default function PresencePage() {
         const response = await fetch("https://api.staworth.com/links");
         if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
         const data = await response.json();
+        // Transform 'link' field to 'href'
+        const transformedData = data.map((item: any) => ({
+          ...item,
+          href: item.link
+        }));
         const elapsedTime = Date.now() - startTime;
         const remainingTime = Math.max(0, 800 - elapsedTime);
 
         setTimeout(() => {
           if (isMounted) {
-            setLinks(data);
+            setLinks(transformedData);
             setLoading(false);
           }
         }, remainingTime);

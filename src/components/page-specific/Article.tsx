@@ -18,29 +18,27 @@ export default function Article({
   image,
 }: ArticleLink) {
   return (
-    <div className="article-preview">
-      <a className="article-link" href={href} target="_blank" rel="noopener noreferrer">
-        <div className="article-row">
-          <div className="article-column text-col" style={{ marginRight: 30 }}>
-            <p className="article-header">{title}</p>
-            <div className="article-meta">
-              <span className="article-date">{date}</span>
-              <span className="article-category">{category}</span>
-            </div>
-            {/* Mobile image */}
-            <div className="article-image-wrapper article-image-mobile mobile-only">
-              <img className="article-image" src={image} alt={title} />
-            </div>
-            <p className="article-description">{description}</p>
+    <a className="article-preview" href={href} target="_blank" rel="noopener noreferrer">
+      <div className="article-row">
+        <div className="article-column text-col" style={{ marginRight: 30 }}>
+          <p className="article-header">{title}</p>
+          <div className="article-meta">
+            <span className="article-date">{date}</span>
+            <span className="article-category">{category}</span>
           </div>
-          {/* Desktop image */}
-          <div className="article-column image-col desktop-only">
-            <div className="article-image-wrapper article-image-desktop">
-              <img className="article-image" src={image} alt={title} />
-            </div>
+          {/* Mobile image */}
+          <div className="article-image-wrapper article-image-mobile mobile-only">
+            <img className="article-image" src={image} alt={title} />
+          </div>
+          <p className="article-description">{description}</p>
+        </div>
+        {/* Desktop image */}
+        <div className="article-column image-col desktop-only">
+          <div className="article-image-wrapper article-image-desktop">
+            <img className="article-image" src={image} alt={title} />
           </div>
         </div>
-      </a>
-    </div>
+      </div>
+    </a>
   );
 }

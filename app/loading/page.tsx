@@ -16,7 +16,7 @@ export default function LoadingPage() {
         {showImage && (
           <img
             id="landing-image"
-            src="/logos/Staworth_103_30_Black_Close.png"
+            src="/logos/Staworth_103_30_Black_Close.webp"
             alt="Staworth Logo"
             style={{ display: 'block' }}
           />

@@ -40,7 +40,7 @@ export default function AssetTableRow({
         ${Number(value).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
       </td>
       <td className="asset-table-cell asset-table-cell-balance">
-        {typeof balance === 'number' ? balance.toLocaleString('en-US', { minimumFractionDigits: 3, maximumFractionDigits: 3 }) : balance}
+        {typeof balance === 'number' ? balance.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) : balance}
       </td>
       <td className="asset-table-cell asset-table-cell-publications asset-table-publications">
         {thesisUrl && <a href={thesisUrl}>Thesis</a>}

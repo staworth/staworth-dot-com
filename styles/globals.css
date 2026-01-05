@@ -294,6 +294,7 @@ footer{
 a.link-preview, a.link-preview:link, a.link-preview:visited {
     color: white;
     border: solid #999 2px;
+    pointer-events: auto;
 }
 
 a.link-preview:hover, a.link-preview:active{
@@ -304,12 +305,14 @@ a.link-preview:hover, a.link-preview:active{
 .link-row{
     align-items: center;
     width: 400px;
+    pointer-events: none;
 }
 
 .link-column{
     float: left;
     margin-right:10px;
     height: 40px;
+    pointer-events: none;
 }
 
 .link-image{
@@ -327,6 +330,7 @@ a.link-preview:hover, a.link-preview:active{
     font-weight: bold;
     text-align: center;
     margin-top: 15px;
+    pointer-events: none;
 }
 
 /* === Achievements Styles === */
@@ -349,6 +353,9 @@ a.link-preview:hover, a.link-preview:active{
 
 .article-preview, .article-preview:link, .article-preview:visited{
     border: solid #999 2px;
+    pointer-events: auto;
+    color: white;
+    text-decoration: none;
 }
 
 .article-preview:hover, .article-preview:active{
@@ -358,6 +365,7 @@ a.link-preview:hover, a.link-preview:active{
 .article-row{
     display: flex;
     flex-direction: row;
+    pointer-events: none;
 }
 
 .article-link{
@@ -377,7 +385,8 @@ a.article-link:hover, a.article-link:active{
 .article-column{
     flex: 50%;
     margin-right:10px;
-    width: 50%
+    width: 50%;
+    pointer-events: none;
 }
 
 .article-header{
@@ -387,6 +396,8 @@ a.article-link:hover, a.article-link:active{
     text-align: left;
     margin-left: 20px;
     height: 25px;
+    pointer-events: none;
+    color: white;
 }
 
 .article-meta{
@@ -394,7 +405,8 @@ a.article-link:hover, a.article-link:active{
     display: flex;
     flex-direction: row;
     gap: 20px;
-    margin: 25px 0 25px 0 !important
+    margin: 25px 0 25px 0 !important;
+    pointer-events: none;
 }
 
 .article-date{
@@ -403,12 +415,14 @@ a.article-link:hover, a.article-link:active{
     text-decoration: underline;
     font-size: 14px;
     height: 11px;
+    color: white;
 }
 
 .article-category{
     width: auto;
     margin: auto;
     height: 11px;
+    color: white;
     text-align: center;
     background-color: black;
     font-size: 10px;
@@ -429,6 +443,7 @@ a.article-link:hover, a.article-link:active{
     padding-left: 20px;
     padding-right: 20px;
     border: solid #444 2px;
+    color: white;
 }
 
 .article-image{
