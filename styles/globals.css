@@ -791,11 +791,11 @@ a.portfolio-data:hover, a.portfolio-data:active{
     }
 
     .asset-table-cell-name{
-        width: 10% !important;
+        width: 5% !important;
     }
 
     .asset-table-cell-value{
-        width: 10% !important;
+        width: 12.5% !important;
     }
 
     .asset-table-cell-balance{
