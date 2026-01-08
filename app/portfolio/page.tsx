@@ -98,7 +98,7 @@ export default function PortfolioPage() {
       <SiteNavbar />
       <PageSummary 
         title="Our Portfolio"
-        description="Check out the digital communities that we serve and invest in. See transparently what financial interests Staworth holds."
+        description="Explore the interests we hold and the businesses and assets we invest in with full transparency."
       />
       <section className="portfolio-section">
         <div className="portfolio-card">

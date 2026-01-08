@@ -1,6 +1,6 @@
 # Staworth Website
 
-The official website for Staworth, a digital organization focused on governance and community involvement. This is a Next.js-based web application that showcases portfolio information, products, and organizational presence.
+The official website for Staworth, a digital organization focused on governance and community involvement. This is a Next.js-based web application that showcases portfolio information, publications, and organizational presence.
 
 ## 🌐 Live Site
 
@@ -18,7 +18,7 @@ Visit [staworth.com](https://staworth.com) or [staworth.org](https://staworth.or
 ## ✨ Features
 
 - **Portfolio Dashboard**: Display digital asset holdings with real-time valuations
-- **Products Showcase**: Browse articles and contributions across the organization
+- **Articles Showcase**: Browse articles and contributions across the organization
 - **Presence Links**: Links to community platforms and engagement channels
 - **Responsive Design**: Fully responsive design for desktop and mobile devices
 - **Loading Animations**: Smooth loading states with animated loader
@@ -39,9 +39,10 @@ staworth-dot-com/
 ├── app/                          # Next.js app directory (routes)
 │   ├── layout.tsx               # Root layout component
 │   ├── page.tsx                 # Home page
+│   ├── articles/                # Articles page
 │   ├── loading/                 # Loading page
 │   ├── portfolio/               # Portfolio page
-│   ├── products/                # Products/articles page
+│   ├── products/                # Redirects to /articles
 │   └── presence/                # Presence/links page
 ├── src/
 │   ├── components/
@@ -145,18 +146,20 @@ Key style classes:
 4. Map data to configured token list
 5. Render assets with balances and values
 
-### Products Page
+### Articles Page
 1. Similar loading flow with 800ms minimum
 2. Fetch articles from API
 3. Paginate articles (5 per page)
 4. Render article cards with navigation
+5. Accessible via /articles or /products (redirects)
 
 ## 🛠️ Development Notes
 
 - **Next.js Version**: 16.1.1 with Turbopack for faster builds
-- **Client Components**: Portfolio and products pages use `"use client"` directive for interactivity
+- **Client Components**: Portfolio and articles pages use `"use client"` directive for interactivity
 - **Loading States**: Consistent 800ms minimum loading time across pages for UX consistency
 - **No Build-Time Data Fetching**: All data is fetched at runtime from the API
+- **Route Redirect**: /products redirects to /articles for backward compatibility
 
 ## 📝 License
 
@@ -171,4 +174,3 @@ MIT - See LICENSE file for details
 - [GitHub Repository](https://github.com/Staworth/staworth-dot-com)
 - [Staworth Organization](https://staworth.com)
 - [Gnosis Delegate Profile](https://forum.gnosis.io/t/staworth-jackgale-eth-delegate-platform/8770)
-
