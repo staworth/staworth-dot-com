@@ -62,7 +62,7 @@ export default function PresencePage() {
     };
   }, []);
 
-  const LINKS_PER_PAGE = 8;
+  const LINKS_PER_PAGE = 6;
   const [page, setPage] = useState(1);
   const totalPages = Math.ceil(links.length / LINKS_PER_PAGE);
   const startIdx = (page - 1) * LINKS_PER_PAGE;
