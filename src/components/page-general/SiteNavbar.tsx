@@ -5,6 +5,7 @@ import Link from "next/link";
 
 export default function SiteNavbar() {
     const [open, setOpen] = useState(false);
+    const [productsOpen, setProductsOpen] = useState(false);
     return (
         <nav className="navbar-outer navbar-fixed">
             <div className="navbar-inner">
@@ -18,8 +19,19 @@ export default function SiteNavbar() {
                     <li className="nav-item">
                         <Link className="nav-link" href="/portfolio">Portfolio</Link>
                     </li>
-                    <li className="nav-item">
-                        <Link className="nav-link" href="/products">Products</Link>
+                    <li className="nav-item products-dropdown-container">
+                        <button
+                            className="nav-link products-dropdown-button"
+                            onClick={() => setProductsOpen((prev) => !prev)}
+                        >
+                            Products
+                        </button>
+                        {productsOpen && (
+                            <div className="products-dropdown">
+                                <Link href="/articles" className="nav-link dropdown-link" onClick={() => setProductsOpen(false)}>Articles</Link>
+                                <a href="https://beefy.staworth.com/" className="nav-link dropdown-link" onClick={() => setProductsOpen(false)}>Beefy</a>
+                            </div>
+                        )}
                     </li>
                 </ul>
                 <button
@@ -40,7 +52,19 @@ export default function SiteNavbar() {
                 <div className="navbar-dropdown">
                     <Link href="/presence" className="nav-link dropdown-link" onClick={() => setOpen(false)}>Presence</Link>
                     <Link href="/portfolio" className="nav-link dropdown-link" onClick={() => setOpen(false)}>Portfolio</Link>
-                    <Link href="/products" className="nav-link dropdown-link" onClick={() => setOpen(false)}>Products</Link>
+                    <button
+                        className="nav-link dropdown-link products-mobile-button"
+                        onClick={() => setProductsOpen((prev) => !prev)}
+                    >
+                        <span>Products</span>
+                        <span className={`products-arrow ${productsOpen ? 'open' : ''}`}>▼</span>
+                    </button>
+                    {productsOpen && (
+                        <div className="products-mobile-nested">
+                            <Link href="/articles" className="nav-link dropdown-link" onClick={() => { setOpen(false); setProductsOpen(false); }}>Articles</Link>
+                            <a href="https://beefy.staworth.com/" className="nav-link dropdown-link" onClick={() => { setOpen(false); setProductsOpen(false); }}>Beefy</a>
+                        </div>
+                    )}
                 </div>
             )}
         </nav>

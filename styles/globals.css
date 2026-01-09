@@ -48,6 +48,47 @@ body{
     align-items: center;
 }
 
+/* Products Dropdown Styles */
+.products-dropdown-container {
+    position: relative;
+}
+
+.products-dropdown-button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.products-dropdown {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: black;
+    position: absolute;
+    top: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    border-radius: 20px;
+    border: 1px solid white;
+    padding: 10px 0;
+    min-width: 150px;
+}
+
+.products-dropdown .nav-link,
+.products-dropdown .dropdown-link {
+    padding: 12px 24px;
+    background: transparent;
+    transition: color 0.2s;
+    font-size: 18px;
+    min-height: 30px;
+    text-align: center;
+    width: 100%;
+}
+
 /* === Loader Animation === */
 #loader {
   position: fixed;
@@ -167,7 +208,7 @@ body{
 .navbar-dropdown a.nav-link,
 .navbar-dropdown a.nav-link:link,
 .navbar-dropdown a.nav-link:visited {
-    padding: 12px 24px;
+    padding: 12px 0 12px 0;
     background: transparent;
     transition: color 0.2s;
     font-size: 18px;
@@ -216,9 +257,51 @@ body{
     .navbar-dropdown .nav-link,
     .navbar-dropdown .dropdown-link,
     .navbar-dropdown .nav-link.dropdown-link {
+        margin-left: 0px;
         width: 100% !important;
-        margin: 0 !important;
+    }
+
+    /* Mobile Products Button */
+    .products-mobile-button {
         text-align: center !important;
+        border: none;
+        margin-bottom: 9px;
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+        margin-left: 20px !important;
+    }
+
+    .products-arrow {
+        font-size: 12px;
+        transition: transform 0.3s ease;
+        display: inline-block;
+    }
+
+    .products-arrow.open {
+        transform: rotate(180deg);
+    }
+
+    /* Mobile nested products dropdown */
+    .products-mobile-nested {
+        height: 108px;
+        margin-left: -10px;
+        display: flex;
+        flex-direction: column;
+        background: #000;
+    }
+
+    .products-mobile-nested .nav-link,
+    .products-mobile-nested .dropdown-link {
+        height: 50px !important;
+        font-size: 18px !important;
+        text-align: left !important;
+    }
+
+    /* Hide desktop products dropdown on mobile */
+    .products-dropdown {
+        display: none !important;
     }
 }
 /* === Footer Styles === */
