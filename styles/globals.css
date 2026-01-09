@@ -733,7 +733,7 @@ a.article-link:hover, a.article-link:active{
 
 .leading-normal{
     max-width: 800px;
-    margin: auto;
+    margin: 80px auto 0 auto;
     font-size: 16px;
     line-height: 1.6;
     color: white;
@@ -753,7 +753,7 @@ a.article-link:hover, a.article-link:active{
 
 .leading-normal img {
     width: 60%;
-    border-radius: 20px;
+    border-radius: 25px;
     display: block;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -763,7 +763,6 @@ a.article-link:hover, a.article-link:active{
     margin-right: auto;
     width: 100%;
     max-width: 800px;
-    border-radius: 20px;
     display: block;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
