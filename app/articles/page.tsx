@@ -16,7 +16,7 @@ type ArticleType = ArticleLink;
 export default function ArticlesPage() {
   const [links, setLinks] = useState<ArticleLink[]>([]);
   const [loading, setLoading] = useState(true);
-  
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -27,19 +27,42 @@ export default function ArticlesPage() {
 
     const fetchArticles = async () => {
       try {
-        const response = await fetch("https://api.staworth.com/articles");
-        const data = await response.json();
-        // Transform 'link' field to 'href'
-        const transformedData = data.map((item: any) => ({
+        // Fetch API articles
+        const apiResponse = await fetch("https://api.staworth.com/articles");
+        const apiData = await apiResponse.json();
+        const apiArticles = apiData.map((item: any) => ({
           ...item,
           href: item.link
         }));
+
+        // Fetch markdown-based articles
+        const mdResponse = await fetch("/api/articles");
+        const mdArticles = await mdResponse.json();
+
+        // Extract titles from markdown articles for deduplication
+        const mdTitles = new Set(
+          mdArticles.map((article: ArticleLink) => article.title.toLowerCase().trim())
+        );
+
+        // Filter out API articles that have the same title as markdown articles
+        const filteredApiArticles = apiArticles.filter((article: any) => {
+          // Keep only if title is not in markdown articles
+          return !mdTitles.has(article.title.toLowerCase().trim());
+        });
+
+        // Combine filtered API articles with markdown articles and sort by date (newest first)
+        const allArticles = [...filteredApiArticles, ...mdArticles].sort((a, b) => {
+          const dateA = new Date(a.date).getTime();
+          const dateB = new Date(b.date).getTime();
+          return dateB - dateA;
+        });
+
         const elapsedTime = Date.now() - startTime;
         const remainingTime = Math.max(0, 800 - elapsedTime);
 
         setTimeout(() => {
           if (isMounted) {
-            setLinks(transformedData);
+            setLinks(allArticles);
             setLoading(false);
           }
         }, remainingTime);

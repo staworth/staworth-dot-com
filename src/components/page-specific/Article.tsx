@@ -17,8 +17,16 @@ export default function Article({
   description,
   image,
 }: ArticleLink) {
+  // Check if it's an internal link (starts with /)
+  const isInternal = href.startsWith('/');
+
   return (
-    <a className="article-preview" href={href} target="_blank" rel="noopener noreferrer">
+    <a
+      className="article-preview"
+      href={href}
+      target={isInternal ? '_self' : '_blank'}
+      rel={isInternal ? undefined : 'noopener noreferrer'}
+    >
       <div className="article-row">
         <div className="article-column text-col" style={{ marginRight: 30 }}>
           <p className="article-header">{title}</p>

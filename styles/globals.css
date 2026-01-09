@@ -7,15 +7,14 @@ html{
     height: 100%;
     width: 100%;
     overflow-x: hidden;
-    min-height: 100vh;
 }
 
 body{
-    min-height: 100vh;
     max-width: 100%;
     background: black;
     color: white;
     overflow-x: hidden;
+    padding-bottom: 30px;
 }
 
 /* === Navbar Styles === */
@@ -306,20 +305,22 @@ body{
 }
 /* === Footer Styles === */
 footer{
+    position: fixed;
+    bottom: 0;
+    right: 0;
     width: 100%;
     background-color: black;
     color: white;
     text-align: right;
     padding-right: 10pt;
     font-size: 11px;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: black;
-    color: white;
-    text-align: right;
     padding: 5px 0 5px 0;
     z-index: 3;
+    pointer-events: none;
+}
+
+footer > * {
+    pointer-events: auto;
 }
 
 /* === Summary  Styles === */
@@ -459,7 +460,7 @@ a.link-preview:hover, a.link-preview:active{
     text-align: justify;
     font-size: 11px;
 }
-/* === Article Styles === */
+/* === "Articles" Page Styles === */
 .article-preview{
     display: flex;
     width: auto;
@@ -727,6 +728,58 @@ a.article-link:hover, a.article-link:active{
     }
     cursor: not-allowed !important;
 }
+
+/* === Article Pages Styles === */
+
+.leading-normal{
+    max-width: 800px;
+    margin: auto;
+    font-size: 16px;
+    line-height: 1.6;
+    color: white;
+    text-align: justify;
+}
+
+.leading-normal a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.leading-normal a:hover {
+    color: #03a70b;
+}
+
+.leading-normal img {
+    width: 60%;
+    border-radius: 20px;
+    display: block;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.leading-normal span img {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: 800px;
+    border-radius: 20px;
+    display: block;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+    .leading-normal {
+        margin-left: 5%;
+        margin-right: 5%;
+        width: 90%;
+    }
+
+    .leading-normal img {
+        height: 10%;
+    }
+}
+
 /* === Portfolio Styles === */
 .portfolio{
     background: transparent; 
