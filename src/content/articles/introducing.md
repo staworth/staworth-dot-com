@@ -1,13 +1,15 @@
 ---
 date: 2024-05-31T12:00:00Z
-header_image: "../../../public/images/articles/introducing/Staworth_16_9_Black.webp"
-short_description: "A brief introduction to Staworth Limited - 'staunch advocacy for digital communities'. Read about the principles we're built on and our journey through to launch."
-sub_header: "Introducing: Staworth"
 title: "Introducing: Staworth"
+sub_header: "Introducing: Staworth"
+author: "Jack Gale"
+short_description: "Staworth Limited: staunch advocacy for digital communities. Discover the principles we're built on and our journey from doubt to launch."
+header_image: "../../../public/images/articles/introducing/Staworth_16_9_Black.webp"
+keywords: ["Web3", "Onchain Equity", "Value Alignment"]
 tags: [staworth]
 ---
 
-![](../../../public/images/articles/introducing/grey-shapes-8.webp)
+![Abstract grey geometric shapes pattern](../../../public/images/articles/introducing/grey-shapes-8.webp)
 
 # Introducing: Staworth
 
@@ -32,9 +34,9 @@ For me, seeing over and over again how professional service providers are driven
 
 In theory, the solution to the principal-agent problem isn’t hard: each organisation should seek to maximise the value alignment between their key experts or advisors and decision-makers. But achieving this in practice is much more difficult.
 
-But there are solutions available. Organisations can deploy financial incentives to tie agents to its interests. They can try to imbue a culture which has significant intangible value and attraction. They can even try to groom agents with close personal ties and mutual interest in their own locality. Or - as I’ve come to prefer - you can look to equity to create value alignment through shared ownership.
+But there are solutions available. Organisations can deploy financial incentives to tie agents to its interests. They can try to imbue a culture which has significant intangible value and attraction. They can even try to groom agents with close personal ties and mutual interest in their own locality. Or - as I've come to prefer - you can look to equity to create value alignment through shared ownership.
 
-![](../../../public/images/articles/introducing/grey-shapes-2.webp)
+![Abstract grey geometric design on neutral background](../../../public/images/articles/introducing/grey-shapes-2.webp)
 
 ## Equity
 
@@ -55,7 +57,7 @@ But don't professional service companies have their own equity? Can't that be us
 
 In my quest for answers to that deep existential ick, I’ve been lucky to find myself at the right place and time to witness the rise of a technology that will help. Stumbling onto Web 3.0 - the decentralised internet - was a lucky coincidence. But the potential of Web 3.0 to evolve humanity's techniques for value alignment is no accident.
 
-At first, most commentators will wonder why decentralization makes a difference. Take the Toyota example, where a single centralized entity rose to a dominance in part by building a strong equity framework. If Toyota hadn't had the scale to entice skilled suppliers, exchange valuable equity and offer long-term commitment, would any supplier have given them the time of day? This is undoubtedly the case in a capital-heavy industry like manufacturing, where the high cost of entry means that some level of resource centralisation is a prerequisite to building a competitive product. I am under no illusions that decentralisation is the solution to the principal-agent problem.
+At first, most commentators will wonder why decentralization makes a difference. Take the Toyota example, where a single centralized entity rose to a dominance in part by building a strong onchain equity framework. If Toyota hadn't had the scale to entice skilled suppliers, exchange valuable equity and offer long-term commitment, would any supplier have given them the time of day? This is undoubtedly the case in a capital-heavy industry like manufacturing, where the high cost of entry means that some level of resource centralisation is a prerequisite to building a competitive product. I am under no illusions that decentralisation is the solution to the principal-agent problem.
 
 However, the world economy is constantly evolving, and a greater proportion of humans are devoting their working lives to social, cultural or informational roles. Advanced automation and production techniques continue to whittle down the remaining share of skilled labourers. And AI threatens to once again shake up the order of labour. In a market where a lone worker can compete squarely with enormous organisations in providing professional services, creating cultural value or building damn-good software, isn't the opposite conclusion more likely: if an individual can profitably break off from a company to focus more on their own interests, doesn't the principle-agent problem suggest that they often will?
 
@@ -63,9 +65,9 @@ The world has been progressively decentralising for a long time now. Really, the
 
 Does decentralised consensus really solve the principal-agent problem? Not directly. But it facilitates both the granular fragmentation of separate interests and the explicit representation of self-interest, both of which make the assessment of value alignment far easier. It also empowers principals to seek a decentralised source of truth and advice, to counterbalance against its agents. Ultimately, the tools emerging from this burgeoning industry present opportunities to tackle with this problem.
 
-Web 3.0 is also the perfect place to experiment with equity. Tokenisation on the blockchain allows for greater flexibility in designing shared ownership frameworks. Equity can accrue in real time, be structured, allocated or committed in any conceivable shape or form, and boast the security of decentralised validation. Not only does decentralisation empower more individuals to operate their own businesses (much like in Toyota's lean supply chain), it also more easily enables those businesses to better achieve value alignment. Equity is created anew in Web 3.0.
+Web 3.0 is also the perfect place to experiment with equity. Tokenisation on the blockchain allows for greater flexibility in designing shared ownership frameworks. Onchain equity can accrue in real time, be structured, allocated or committed in any conceivable shape or form, and boast the security of decentralised validation. Not only does decentralisation empower more individuals to operate their own businesses (much like in Toyota's lean supply chain), it also more easily enables those businesses to better achieve value alignment. Equity is created anew in Web 3.0.
 
-![](../../../public/images/articles/introducing/Staworth_16_9_Black.webp)
+![Staworth Limited brand header with black geometric logo design](../../../public/images/articles/introducing/Staworth_16_9_Black.webp)
 
 ## Staworth
 
@@ -75,7 +77,7 @@ The name "Staworth" is derived from the old English term "Stalworth", which evol
 
 Staworth has its own profit mandate, it's own equity structure and its own potential for shared ownership. The goal then is to amend the tired formula for professional services and tackle the principle-agent problem head on, using all the tools that Web 3.0 has at its disposal. By providing professional services to Web 3.0 native organisations - who are well versed and keen to experiment - Staworth has the potential to build a novel and stronger system of shared ownership, with value alignment as the unifying goal.
 
-How will we do this? Simple. Staworth will be a public contributor to and active member of decentralised communities. It will selfishly look to identify opportunities to create value and develop organisations to better serve the goals of their communities, in exchange for payment from their earnings, assets or equity. And a portion of all Staworth's earnings will be reinvested or held in the equity of those communities, specifically in the form of governance tokens - the modern equity of Web 3.0. Staworth will be a hardworking and reliable supporter of its communities, participating diligently in their governance and seeking always to align around its unwavering dedication to decentralisation. And over time, as the equity earned and held by Staworth outstrips it immediate earning potential, the balance of Staworth's own interests will be tipped firmly in the direction of the communities that it participates in.
+*How will we do this?* Simple. Staworth will be a public contributor to and active member of decentralised communities. It will selfishly look to identify opportunities to create value and develop organisations to better serve the goals of their communities, in exchange for payment from their earnings, assets or equity. And a portion of all Staworth's earnings will be reinvested or held in the equity of those communities, specifically in the form of governance tokens - the modern onchain equity of Web 3.0. Staworth will be a hardworking and reliable supporter of its communities, participating diligently in their governance and seeking always to align around its unwavering dedication to decentralisation. And over time, as the equity earned and held by Staworth outstrips it immediate earning potential, the balance of Staworth's own interests will be tipped firmly in the direction of the communities that it participates in...
 
 So, that's [Staworth](https://www.staworth.com/). A Web 3.0 professional services firm, dedicated to staunch advocacy for digital communities.
 
@@ -84,3 +86,7 @@ Our mission is to achieve a better value alignment through and within the decent
 If you, the reader, feel your own alignment with these values, don't hesitate to get in touch with [hello@staworth.com](mailto:hello@staworth.com).
 
 I look forward to finding out where this brave new path takes us.
+
+---
+
+*This updated article is derived from the original [Paragraph piece](https://paragraph.com/@staworth/introducing-staworth) published on 31 May 2024. Minor updates have been introduced to improve web accessibility via [staworth.com](https://staworth.com/).*
