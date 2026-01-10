@@ -10,7 +10,7 @@ export default function SiteNavbar() {
         <nav className="navbar-outer navbar-fixed">
             <div className="navbar-inner">
                 <Link className="navbar-brand navbar-brand-flex" aria-current="page" href="/">
-                    <Image className="navbar-title" src="/logos/Staworth_103_30_Black_Close.webp" alt="Staworth Logo" width={150} height={50} />
+                    <Image className="navbar-title" src="/logos/Staworth_103_30_Black_Close.webp" alt="Staworth Logo" width={412} height={120} quality={100}/>
                 </Link>
                 <ul className="navbar-nav navbar-nav-flex">
                     <li className="nav-item">

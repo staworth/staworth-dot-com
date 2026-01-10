@@ -48,6 +48,11 @@ body{
     align-items: center;
 }
 
+.navbar-title {
+    height: auto;
+    width: auto;
+}
+
 /* Products Dropdown Styles */
 .products-dropdown-container {
     position: relative;
@@ -572,8 +577,7 @@ a.article-link:hover, a.article-link:active{
 }
 
 .article-image{
-    max-height: 100%;
-    min-height: 200px;
+    min-height: 205px;
     width: 95%;
     object-fit: cover;
     border-radius: 20px;
