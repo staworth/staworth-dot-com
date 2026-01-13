@@ -147,6 +147,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
               img: ({ src, alt }) => {
                 if (!src || typeof src !== 'string') return null;
                 const imagePath = src.replace(/^\.\.\/\.\.\/\.\.\/public/, '');
+                const isGif = imagePath.toLowerCase().endsWith('.gif');
                 return (
                   <span className="block my-8">
                     <Image
@@ -155,6 +156,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
                       width={800}
                       height={450}
                       className="w-full h-auto"
+                      unoptimized={isGif}
                     />
                   </span>
                 );

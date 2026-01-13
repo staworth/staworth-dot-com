@@ -774,8 +774,9 @@ a.article-link:hover, a.article-link:active{
 }
 
 .leading-normal img {
-    height: 350px;
-    width: 60%;
+    width: 90%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
     border-radius: 25px;
     display: block;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
