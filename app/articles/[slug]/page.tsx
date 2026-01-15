@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import Image from 'next/image';
 import { Metadata } from 'next';
 import SiteNavbar from '../../../src/components/page-general/SiteNavbar';
@@ -140,6 +141,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
       <main className="p-6 max-w-3xl mx-auto">
         <div className="leading-normal">
           <ReactMarkdown
+            remarkPlugins={[remarkGfm]}
             components={{
               p: ({ children, ...props }) => (
                 <p className="mb-6" {...props}>{children}</p>
@@ -155,12 +157,35 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
                       alt={alt || ''}
                       width={800}
                       height={450}
-                      className="w-full h-auto"
+                      className="w-full h-auto article-content-image"
                       unoptimized={isGif}
                     />
                   </span>
                 );
               },
+              table: ({ children, ...props }) => (
+                <div className="my-6 article-table-wrapper">
+                  <table className="w-full text-white article-table" {...props}>{children}</table>
+                </div>
+              ),
+              thead: ({ children, ...props }) => (
+                <thead {...props}>{children}</thead>
+              ),
+              tbody: ({ children, ...props }) => (
+                <tbody {...props}>{children}</tbody>
+              ),
+              tr: ({ children, ...props }) => (
+                <tr {...props}>{children}</tr>
+              ),
+              th: ({ children, ...props }) => (
+                <th className="text-left font-bold" {...props}>{children}</th>
+              ),
+              td: ({ children, ...props }) => (
+                <td {...props}>{children}</td>
+              ),
+              blockquote: ({ children, ...props }) => (
+                <blockquote className="article-blockquote" {...props}>{children}</blockquote>
+              ),
             }}
           >
             {content}

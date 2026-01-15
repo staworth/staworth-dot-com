@@ -13,6 +13,8 @@ tags: [staworth]
 
 # Introducing: Staworth
 
+> This updated article is derived from the original [Paragraph piece](https://paragraph.com/@staworth/introducing-staworth) published on 31 May 2024. Minor updates have been introduced to improve web accessibility via [staworth.com](https://staworth.com/).
+
 Setting out on your own is tough. The fear and doubt that surround breaking with everything you've ever known to do something completely different can be very real, and very hard to grapple with. I'm not ashamed to say it's taken me years to gradually wrestle my doubt into submission, and take the plunge to make my own adventure.
 
 A key part of this struggle is that it's difficult to talk to people about why you want to walk away. There's a stigma around confessing dreams of escape because it casts doubts over your loyalty and commitment; it threatens to decouple you from the pack. People may ask what you're doing and why, but - to the extent that it's radically different to them - it can often feel like an affront to their own choices and path. At times, I’ve come to dread these questions.
@@ -86,7 +88,3 @@ Our mission is to achieve a better value alignment through and within the decent
 If you, the reader, feel your own alignment with these values, don't hesitate to get in touch with [hello@staworth.com](mailto:hello@staworth.com).
 
 I look forward to finding out where this brave new path takes us.
-
----
-
-*This updated article is derived from the original [Paragraph piece](https://paragraph.com/@staworth/introducing-staworth) published on 31 May 2024. Minor updates have been introduced to improve web accessibility via [staworth.com](https://staworth.com/).*
