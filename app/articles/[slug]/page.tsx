@@ -133,9 +133,12 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
   };
 
   // Clean up header image path for the ArticleHeader component
+  // Use header_image if specified, otherwise fall back to preview_image
   const headerImagePath = data.header_image
     ? data.header_image.replace(/^\.\.\/\.\.\/\.\.\/public/, '')
-    : '/images/articles/introducing/Staworth_16_9_Black.webp';
+    : data.preview_image
+      ? data.preview_image.replace(/^\.\.\/\.\.\/\.\.\/public/, '')
+      : '/images/articles/introducing/Staworth_16_9_Black.webp';
 
   return (
     <>
@@ -162,6 +165,21 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
                 if (!src || typeof src !== 'string') return null;
                 const imagePath = src.replace(/^\.\.\/\.\.\/\.\.\/public/, '');
                 const isGif = imagePath.toLowerCase().endsWith('.gif');
+                const isMp4 = imagePath.toLowerCase().endsWith('.mp4');
+                if (isMp4) {
+                  return (
+                    <span className="block my-8">
+                      <video
+                        src={imagePath}
+                        className="w-full h-auto article-content-image"
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                      />
+                    </span>
+                  );
+                }
                 if (isGif) {
                   return (
                     <span className="block my-8">

@@ -33,7 +33,9 @@ export async function GET() {
           category: tags[0],
           tags: tags,
           description: data.short_description || '',
-          image: data.header_image?.replace(/^\.\.\/\.\.\/\.\.\/public/, '') || '/logos/Staworth_1_1_Black.webp',
+          image: data.preview_image?.replace(/^\.\.\/\.\.\/\.\.\/public/, '')
+            || data.header_image?.replace(/^\.\.\/\.\.\/\.\.\/public/, '')
+            || '/logos/Staworth_1_1_Black.webp',
         };
       });
 

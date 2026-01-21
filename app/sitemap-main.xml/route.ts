@@ -6,8 +6,15 @@ import matter from 'gray-matter';
 export async function GET() {
   const baseUrl = 'https://www.staworth.com';
 
+  type SitemapEntry = {
+    url: string;
+    lastModified?: string;
+    changeFrequency: string;
+    priority: number;
+  };
+
   // Static pages with their priorities and change frequencies
-  const staticPages = [
+  const staticPages: SitemapEntry[] = [
     { url: baseUrl, changeFrequency: 'monthly', priority: 1.0 },
     { url: `${baseUrl}/products`, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${baseUrl}/portfolio`, changeFrequency: 'monthly', priority: 0.8 },
@@ -17,7 +24,7 @@ export async function GET() {
 
   // Dynamic article pages
   const articlesDirectory = path.join(process.cwd(), 'src/content/articles');
-  let articlePages: { url: string; lastModified?: string; changeFrequency: string; priority: number }[] = [];
+  let articlePages: SitemapEntry[] = [];
 
   try {
     const articleFiles = fs.readdirSync(articlesDirectory);

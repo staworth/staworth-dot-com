@@ -1275,7 +1275,8 @@ a.portfolio-data:hover, a.portfolio-data:active{
     margin-bottom: 24px;
 }
 
-.article-header-image img {
+.article-header-image img,
+.article-header-image video {
     width: 100%;
     height: auto;
     max-height: 350px;

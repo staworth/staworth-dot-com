@@ -4,7 +4,8 @@ title: "The Beefy Financial Hub: Building With Octav & Staworth"
 sub_header: "The Beefy Financial Hub: Staworth x Octav"
 author: "Jack Gale"
 short_description: "Deep-dive account of how Staworth, Octav and Beefy developed Beefy's Financial Hub — a transparent, automated platform for real‑time DeFi treasury insights."
-header_image: "../../../public/images/articles/beefy-octav-financial-hub/cover.gif"
+preview_image: "../../../public/images/articles/beefy-octav-financial-hub/cover.webp"
+header_image: "../../../public/images/articles/beefy-octav-financial-hub/cover.mp4"
 keywords: ["DeFi Accounting", "DeFi Financial Reporting", "Crypto Portfolio Intelligence", "Crypto Treasury Analytics", "DAO Treasury Reporting", "DAO Treasury Management"]
 tags: [ octav, beefy ]
 ---
@@ -80,7 +81,7 @@ On the one hand, it serves [Reports](https://beefy.staworth.com/reports) (screen
 
 On the other hand, it implements [Query](https://beefy.staworth.com/query) functionality (gif below), letting users select, arrange and display data from Beefy's Octav instance to suit their own needs. Users can request raw data, tables or Octav-compatible widgets, all of which can be downloaded.
 
-![GIF of the Beefy Financial Hub's Query page being used to generate a custom widget.](../../../public/images/articles/beefy-octav-financial-hub/query-widget.gif)
+![GIF of the Beefy Financial Hub's Query page being used to generate a custom widget.](../../../public/images/articles/beefy-octav-financial-hub/query-widget.mp4)
 
 The full library of possible [Widgets](https://beefy.staworth.com/widget) is also displayed for perusal.
 
@@ -98,7 +99,7 @@ Capitalising on this new opportunity, we felt the perfect distribution channel f
 
 The Octav bot that we developed hosts a range of simple commands which pull, aggregate and return Octav data in standardised reporting forms. It allows Beefy's contributors to check on their aggregate revenues or costs over any arbitrary period on any specific chains, taking a snapshot of profitability in a few seconds. It also enables historic cross-checks of portfolio balances, understanding how the DAO's treasury has evolved over time.
 
-![GIF showing the Beefy Octav Bot building an example revenue report on Discord.](../../../public/images/articles/beefy-octav-financial-hub/octav-bot.gif)
+![GIF showing the Beefy Octav Bot building an example revenue report on Discord.](../../../public/images/articles/beefy-octav-financial-hub/octav-bot.mp4)
 
 Though Discord was a natural choice for Beefy's community, the same distribution tools can easily be replicated across Telegram, Slack, and other popular collaboration spaces. With the advances of LLM-powered bots, it's not hard to imagine integrations with social media platforms, where bot accounts provide answers to the public's questions with references to live portfolio and transaction data.
 

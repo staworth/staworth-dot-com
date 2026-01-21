@@ -21,12 +21,22 @@ export default function ArticleHeader({
   });
 
   const isGif = headerImage.toLowerCase().endsWith(".gif");
+  const isMp4 = headerImage.toLowerCase().endsWith(".mp4");
 
   return (
     <header className="article-header-container">
-      {/* Row 1: Cover image - 100% width */}
+      {/* Row 1: Cover image/video - 100% width */}
       <div className="article-header-image">
-        {isGif ? (
+        {isMp4 ? (
+          <video
+            src={headerImage}
+            className="w-full h-auto"
+            autoPlay
+            loop
+            muted
+            playsInline
+          />
+        ) : isGif ? (
           <img
             src={headerImage}
             alt={title}
