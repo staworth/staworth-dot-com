@@ -17,10 +17,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     const fileContent = fs.readFileSync(filePath, 'utf8');
     const { data } = matter(fileContent);
 
-    // Clean up the header image path for Open Graph
-    const ogImage = data.header_image
-      ? data.header_image.replace(/^\.\.\/\.\.\/\.\.\/public/, '')
-      : '/images/articles/introducing/Staworth_16_9_Black.webp';
+    // Clean up the image path for Open Graph - prefer preview_image for social sharing
+    const ogImage = data.preview_image
+      ? data.preview_image.replace(/^\.\.\/\.\.\/\.\.\/public/, '')
+      : data.header_image
+        ? data.header_image.replace(/^\.\.\/\.\.\/\.\.\/public/, '')
+        : '/images/articles/introducing/Staworth_16_9_Black.webp';
 
     return {
       title: data.title || 'Staworth Article',
