@@ -10,7 +10,7 @@ keywords: ["DeFi Accounting", "DeFi Financial Reporting", "Crypto Portfolio Inte
 tags: [ octav, beefy ]
 ---
 
-> This blog is a companion piece to the [Beefy article](https://beefy.com/articles/staworth-octav-financial-systems/) on new developments in 2025. It's a deep dive into building with Octav, the the technologies that comprise the new [Beefy Financial Hub](https://beefy.staworth.com/).
+> This blog is a companion piece to the [Beefy article](https://beefy.com/articles/staworth-octav-financial-systems/) on new developments in 2025. It's a deep dive into building with Octav, and the technologies that comprise the new [Beefy Financial Hub](https://beefy.staworth.com/).
 
 
 In January 2025, we [sought approval](https://snapshot.org/#/s:beefydao.eth/proposal/0x7293b09c56e80bf7b655e6eea2a7c913d8ff6d8c3ee470b9f90349d0b196ea0e) from the Beefy DAO to enter into a year-long engagement with [Octav](https://octav.fi/) — a leading provider of portfolio intelligence data. Our aim for the year was to improve and accelerate Beefy's accounting efforts by building better tooling. 
@@ -111,7 +111,7 @@ For distribution with Octav, **the sky is the limit.**
 
 As we move into a new year, our achievements to date haven't dulled our ambitions. If anything, the rate of progress within the Octav Stack has only served to expand our view of what's possible in 2026.
 
-With Beefy's Financial Hub live and operational, we've barely began to scratch the surface of the different kinds of widget designs and implementations that we would like to see. By continuing to work closely with Octav, building on their stack and aligning our development paths, we aim to showcase the limitless potential of DeFi to improve our financial systems.
+With Beefy's Financial Hub live and operational, we've barely begun to scratch the surface of the different kinds of widget designs and implementations that we would like to see. By continuing to work closely with Octav, building on their stack and aligning our development paths, we aim to showcase the limitless potential of DeFi to improve our financial systems.
 
 **We're just getting started...**
 
