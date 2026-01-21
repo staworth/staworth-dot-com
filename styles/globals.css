@@ -555,9 +555,16 @@ a.article-link:hover, a.article-link:active{
     color: white;
 }
 
+.article-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+}
+
 .article-category{
     width: auto;
-    margin: auto;
+    margin: 0;
     height: 11px;
     color: white;
     text-align: center;
@@ -755,7 +762,7 @@ a.article-link:hover, a.article-link:active{
 
 .leading-normal{
     max-width: 650px;
-    margin: 80px auto 0 auto;
+    margin: 0 auto;
     font-size: 16px;
     line-height: 1.6;
     color: white;
@@ -773,9 +780,16 @@ a.article-link:hover, a.article-link:active{
     color: #03a70b;
 }
 
+.leading-normal hr {
+    border: none;
+    border-top: 1px solid #444;
+    margin: 32px 0;
+}
+
 .leading-normal img {
-    height: 350px;
-    width: 60%;
+    width: 90%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
     border-radius: 25px;
     display: block;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -1164,4 +1178,154 @@ a.portfolio-data:hover, a.portfolio-data:active{
 
 .asset-table-col-name {
     width: 100px;
+}
+
+/* Article markdown tables */
+.article-table-wrapper {
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid #555;
+}
+
+.article-table {
+    width: 100%;
+    background-color: black;
+    border-collapse: collapse;
+}
+
+.article-table thead {
+    background-color: #111;
+}
+
+.article-table th,
+.article-table td {
+    padding: 10px;
+    font-size: 15px;
+    text-align: left;
+    border: 1px solid #555;
+}
+
+.article-table th {
+    background-color: #111;
+}
+
+/* Remove outer borders so they don't interfere with rounded corners */
+.article-table thead tr th {
+    border-top: none;
+}
+
+.article-table tbody tr:first-child td {
+    border-top: none;
+}
+
+.article-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.article-table th:first-child,
+.article-table td:first-child {
+    border-left: none;
+}
+
+.article-table th:last-child,
+.article-table td:last-child {
+    border-right: none;
+}
+
+/* Article blockquotes */
+.article-blockquote {
+    background-color: #111;
+    border: 1px solid #555;
+    border-radius: 20px;
+    font-size: 14px;
+    font-style: italic;
+    padding: 15px;
+    margin: 24px 0;
+}
+
+/* Article content images (inside article pages, not previews) */
+.article-content-image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+@media screen and (max-width: 842px) {
+    .article-content-image {
+        width: 100% !important;
+        height: auto !important;
+        max-width: 100% !important;
+        object-fit: contain !important;
+    }
+}
+
+.article-blockquote p {
+    margin: 0;
+}
+
+/* === Article Header Component Styles === */
+.article-header-container {
+    max-width: 650px;
+    margin: 80px auto 0 auto;
+}
+
+.article-header-image {
+    width: 100%;
+    margin-bottom: 24px;
+}
+
+.article-header-image img {
+    width: 100%;
+    height: auto;
+    max-height: 350px;
+    object-fit: cover;
+    border-radius: 20px;
+    display: block;
+}
+
+.article-header-title {
+    width: 100%;
+    font-size: 32px;
+    font-weight: bold;
+    color: white;
+    margin: 0 0 16px 0;
+    text-align: left;
+}
+
+.article-header-meta {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #444;
+}
+
+.article-header-date {
+    width: 50%;
+    text-align: left;
+    color: #999;
+    font-size: 14px;
+}
+
+.article-header-author {
+    width: 50%;
+    text-align: right;
+    color: #999;
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    .article-header-container {
+        margin-left: 5%;
+        margin-right: 5%;
+        width: 90%;
+    }
+
+    .article-header-title {
+        font-size: 24px;
+    }
 }

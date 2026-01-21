@@ -4,14 +4,12 @@ title: "Introducing: Staworth"
 sub_header: "Introducing: Staworth"
 author: "Jack Gale"
 short_description: "Staworth Limited: staunch advocacy for digital communities. Discover the principles we're built on and our journey from doubt to launch."
-header_image: "../../../public/images/articles/introducing/Staworth_16_9_Black.webp"
+header_image: "../../../public/images/articles/introducing/grey-shapes-8.webp"
 keywords: ["Web3", "Onchain Equity", "Value Alignment"]
 tags: [staworth]
 ---
 
-![Abstract grey geometric shapes pattern](../../../public/images/articles/introducing/grey-shapes-8.webp)
-
-# Introducing: Staworth
+> This updated article is derived from the original [Paragraph piece](https://paragraph.com/@staworth/introducing-staworth) published on 31 May 2024. Minor updates have been introduced to improve web accessibility via [staworth.com](https://staworth.com/).
 
 Setting out on your own is tough. The fear and doubt that surround breaking with everything you've ever known to do something completely different can be very real, and very hard to grapple with. I'm not ashamed to say it's taken me years to gradually wrestle my doubt into submission, and take the plunge to make my own adventure.
 
@@ -86,7 +84,3 @@ Our mission is to achieve a better value alignment through and within the decent
 If you, the reader, feel your own alignment with these values, don't hesitate to get in touch with [hello@staworth.com](mailto:hello@staworth.com).
 
 I look forward to finding out where this brave new path takes us.
-
----
-
-*This updated article is derived from the original [Paragraph piece](https://paragraph.com/@staworth/introducing-staworth) published on 31 May 2024. Minor updates have been introduced to improve web accessibility via [staworth.com](https://staworth.com/).*
