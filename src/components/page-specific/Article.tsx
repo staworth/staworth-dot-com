@@ -5,6 +5,7 @@ export type ArticleLink = {
   title: string;
   date: string;
   category: string;
+  tags?: string[];
   description: string;
   image: string;
 };
@@ -14,9 +15,12 @@ export default function Article({
   title,
   date,
   category,
+  tags,
   description,
   image,
 }: ArticleLink) {
+  // Use tags array if available, otherwise fall back to single category
+  const displayTags = tags && tags.length > 0 ? tags : [category];
   // Check if it's an internal link (starts with /)
   const isInternal = href.startsWith('/');
 
@@ -32,7 +36,11 @@ export default function Article({
           <p className="article-header">{title}</p>
           <div className="article-meta">
             <span className="article-date">{date}</span>
-            <span className="article-category">{category}</span>
+            <div className="article-tags">
+              {displayTags.map((tag, index) => (
+                <span key={index} className="article-category">{tag}</span>
+              ))}
+            </div>
           </div>
           {/* Mobile image */}
           <div className="article-image-wrapper article-image-mobile mobile-only">

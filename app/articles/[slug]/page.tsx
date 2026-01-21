@@ -7,6 +7,7 @@ import Image from 'next/image';
 import { Metadata } from 'next';
 import SiteNavbar from '../../../src/components/page-general/SiteNavbar';
 import SiteFooter from '../../../src/components/page-general/SiteFooter';
+import ArticleHeader from '../../../src/components/page-specific/ArticleHeader';
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
@@ -131,6 +132,11 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
     ],
   };
 
+  // Clean up header image path for the ArticleHeader component
+  const headerImagePath = data.header_image
+    ? data.header_image.replace(/^\.\.\/\.\.\/\.\.\/public/, '')
+    : '/images/articles/introducing/Staworth_16_9_Black.webp';
+
   return (
     <>
       <script
@@ -139,6 +145,12 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
       />
       <SiteNavbar />
       <main className="p-6 max-w-3xl mx-auto">
+        <ArticleHeader
+          title={data.title || 'Untitled Article'}
+          date={data.date || new Date().toISOString()}
+          author={data.author || 'Staworth'}
+          headerImage={headerImagePath}
+        />
         <div className="leading-normal">
           <ReactMarkdown
             remarkPlugins={[remarkGfm]}
@@ -150,6 +162,18 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
                 if (!src || typeof src !== 'string') return null;
                 const imagePath = src.replace(/^\.\.\/\.\.\/\.\.\/public/, '');
                 const isGif = imagePath.toLowerCase().endsWith('.gif');
+                if (isGif) {
+                  return (
+                    <span className="block my-8">
+                      <img
+                        src={imagePath}
+                        alt={alt || ''}
+                        className="w-full h-auto article-content-image"
+                        loading="lazy"
+                      />
+                    </span>
+                  );
+                }
                 return (
                   <span className="block my-8">
                     <Image
@@ -158,7 +182,6 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
                       width={800}
                       height={450}
                       className="w-full h-auto article-content-image"
-                      unoptimized={isGif}
                     />
                   </span>
                 );

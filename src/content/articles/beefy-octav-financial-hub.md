@@ -1,32 +1,28 @@
 ---
-date: 2026-01-19T12:00:00Z
+date: 2026-01-21T12:00:00Z
 title: "The Beefy Financial Hub: Building With Octav & Staworth"
 sub_header: "The Beefy Financial Hub: Staworth x Octav"
 author: "Jack Gale"
-short_description: "Deep dive account of how Staworth, Octav and Beefy developed Beefy's Financial Hub — a transparent, automated platform for real‑time DeFi treasury insights."
-header_image: "../../../public/images/articles/beefy-octav-financial-hub/cover.webp"
-keywords: ["DeFi Accounting", "Financial Software Development", "Crypto Portfolio Intelligence"]
-tags: [ beefy, octav ]
+short_description: "Deep-dive account of how Staworth, Octav and Beefy developed Beefy's Financial Hub — a transparent, automated platform for real‑time DeFi treasury insights."
+header_image: "../../../public/images/articles/beefy-octav-financial-hub/cover.gif"
+keywords: ["DeFi Accounting", "DeFi Financial Reporting", "Crypto Portfolio Intelligence", "Crypto Treasury Analytics", "DAO Treasury Reporting", "DAO Treasury Management"]
+tags: [ octav, beefy ]
 ---
 
-<!-- ![](../../../public/images/blog/beefy-octav-financial-hub/cover.png) -->
-
-# The Beefy Financial Hub: Building With Octav & Staworth
-
-> This blog is a companion piece to the [Beefy article](https://beefy.com/articles/staworth-octav-financial-hub/) on new developments in 2025. It's a deep dive into building with Octav, and the technologies that comprise the [Beefy Financial Hub](https://beefy.staworth.com/).
+> This blog is a companion piece to the [Beefy article](https://beefy.com/articles/staworth-octav-financial-systems/) on new developments in 2025. It's a deep dive into building with Octav, the the technologies that comprise the new [Beefy Financial Hub](https://beefy.staworth.com/).
 
 
-In January 2025, we [sought approval](https://snapshot.org/#/s:beefydao.eth/proposal/0x7293b09c56e80bf7b655e6eea2a7c913d8ff6d8c3ee470b9f90349d0b196ea0e) from the Beefy DAO to enter into a year-long engagement with Octav — a leading provider of portfolio intelligence data. Our aim for the year was to improve and accelerate Beefy's accounting efforts by building better tooling. 
+In January 2025, we [sought approval](https://snapshot.org/#/s:beefydao.eth/proposal/0x7293b09c56e80bf7b655e6eea2a7c913d8ff6d8c3ee470b9f90349d0b196ea0e) from the Beefy DAO to enter into a year-long engagement with [Octav](https://octav.fi/) — a leading provider of portfolio intelligence data. Our aim for the year was to improve and accelerate Beefy's accounting efforts by building better tooling. 
 
 We chose Octav because, unlike most leading SaaS crypto accounting platforms, their team is developer-led and wants to build alongside their partners, not just onboard them to their monolithic service. 
 
 Octav promised us better automations, open access to our data, and a rapidly-developing platform that we could help to shape. **They delivered on every count.**
 
-12 months later, and we're extremely proud of everything that Beefy, Octav and Staworth accomplished in 2025: we unveiled our new [Beefy Financial Hub](https://beefy.staworth.com/) - a one-stop shop for data on Beefy's financial performance; we opened up [Beefy's transaction data](https://beefy.octav.fi/app/transactions) to the public; we made that data easily accessible to our community from Discord via an Octav bot; and, we've automated accounting for 90-95% of tens of thousands of annual transactions.
+12 months later, and we're extremely proud of everything that Beefy, Octav and Staworth accomplished in 2025: we unveiled our new [Beefy Financial Hub](https://beefy.staworth.com/) — a one-stop shop for data on Beefy's financial performance; we opened up [Beefy's transaction data](https://beefy.octav.fi/app/transactions) to the public; we made that data easily accessible to our community from Discord via an Octav bot; and, we've automated accounting for 90-95% of tens of thousands of annual transactions.
 
 This article recaps the developer experience of building on Octav and the feature design for Beefy's new tools.
 
-!["Screenshot of the Beefy Financial Hub's Performance Dashboard](../../../public/images/articles/beefy-octav-financial-hub/performance-dash.webp)
+![Screenshot of the Beefy Financial Hub's Performance Dashboard.](../../../public/images/articles/beefy-octav-financial-hub/performance-dash.webp)
 
 ## The Octav Stack
 
@@ -60,9 +56,9 @@ The *"Octav Stack"* is the combination of technologies that together deliver the
 
 Historically, Octav has always been set apart by its open approach to technology, which embraces builders and ensures users can own their own data. But in 2025, two fundamental changes took their model to the next level:
 
-* First, Octav completed the move to **an API-native model**, where all the user data that's available in their app would be open to users directly through a powerful API service. By offering a full range of [flexible endpoints](https://docs.octav.fi/api/introduction#core-endpoints) with deep configuration options, Octav have empowered external applications to extract the data they need. In short: Octav opened its backend up to builders.
+* First, Octav completed the move to **an API-native model**, where all the user data that's available in their app would be open to users directly through a powerful API service. By offering a full range of [flexible endpoints](https://docs.octav.fi/api/introduction#core-endpoints) with deep configuration options, Octav has empowered external applications to extract the data they need. In short: Octav opened its backend up to builders.
 
-* Second, Octav launched its **V2 web application**, which introduced a modular approach to interface design where users build their own workspace using *"widgets"*. These miniature applications are entirely customisable derivatives of Octav's data. Users can even create their own widgets and submit them to Octav's public widget marketplace. In. other words: Octav opened its frontend up to builders.
+* Second, Octav launched its **V2 web application**, which introduced a modular approach to interface design where users build their own workspace using *"widgets"*. These miniature applications are entirely customisable derivatives of Octav's data. Users can even create their own widgets and submit them to Octav's public widget marketplace. In other words: Octav opened its frontend up to builders.
 
 With the stack now complete — and completely open — Octav is ready to bring together its own community of developers and builders looking to apply their DeFi data in new ways.
 
@@ -76,7 +72,7 @@ Our goal for the hackathon was to turn these processes into a public-facing appl
 
 The culmination of that vision is the [Beefy Financial Hub](https://beefy.staworth.com/).
 
-!["Screenshot of the Beefy Financial Hub's Income Statement Report.](../../../public/images/articles/beefy-octav-financial-hub/reports-tab.webp)
+![Screenshot of the Beefy Financial Hub's Income Statement Report.](../../../public/images/articles/beefy-octav-financial-hub/reports-tab.webp)
 
 The Hub brings together the structure of our formal accounts with customisable enquiries into the meaning of our data, all powered by Octav's API.
 
@@ -90,7 +86,7 @@ The full library of possible [Widgets](https://beefy.staworth.com/widget) is als
 
 Bringing the two together, the heart of the Hub is the [Dashboard](https://beefy.staworth.com/dashboard) (screenshot below), where a growing selection of widgets, analytics and descriptions paint a picture of performance for Beefy's users, tokenholders, prospective investors and the industry at large. Where our existing financial reports retell the story of Beefy's performance each quarter, the Dashboard is a living theatre to watch it unfold.
 
-!["Screenshot of the Beefy Financial Hub's Assets Dashboard.](../../../public/images/articles/beefy-octav-financial-hub/assets-dash.webp) 
+![Screenshot of the Beefy Financial Hub's Assets Dashboard.](../../../public/images/articles/beefy-octav-financial-hub/assets-dash.webp) 
 
 Through this range of tools, we aim for Beefy's Financial Hub to become the Swiss Army knife for tokenholders and users assessing the health and performance of Beefy. It's a one-stop shop to understand Beefy's value proposition.
 
@@ -102,7 +98,7 @@ Capitalising on this new opportunity, we felt the perfect distribution channel f
 
 The Octav bot that we developed hosts a range of simple commands which pull, aggregate and return Octav data in standardised reporting forms. It allows Beefy's contributors to check on their aggregate revenues or costs over any arbitrary period on any specific chains, taking a snapshot of profitability in a few seconds. It also enables historic cross-checks of portfolio balances, understanding how the DAO's treasury has evolved over time.
 
-!["GIF showing the Beefy Octav Bot building an example revenue report on Discord."](../../../public/images/articles/beefy-octav-financial-hub/octav-bot.gif)
+![GIF showing the Beefy Octav Bot building an example revenue report on Discord.](../../../public/images/articles/beefy-octav-financial-hub/octav-bot.gif)
 
 Though Discord was a natural choice for Beefy's community, the same distribution tools can easily be replicated across Telegram, Slack, and other popular collaboration spaces. With the advances of LLM-powered bots, it's not hard to imagine integrations with social media platforms, where bot accounts provide answers to the public's questions with references to live portfolio and transaction data.
 
@@ -114,9 +110,12 @@ For distribution with Octav, **the sky is the limit.**
 
 As we move into a new year, our achievements to date haven't dulled our ambitions. If anything, the rate of progress within the Octav Stack has only served to expand our view of what's possible in 2026.
 
-With Beefy's Financial Hub live and operational, we have only just begun to scratch the surface of the different kinds of widget designs and implementations that we would like to see. By continuing to work closely with Octav, building on their stack and aligning our development paths, we aim to showcase the limitless potential of DeFi to improve our financial systems.
+With Beefy's Financial Hub live and operational, we've barely began to scratch the surface of the different kinds of widget designs and implementations that we would like to see. By continuing to work closely with Octav, building on their stack and aligning our development paths, we aim to showcase the limitless potential of DeFi to improve our financial systems.
 
-**We're only just getting started...**
+**We're just getting started...**
 
-| [Beefy Financial Hub](https://beefy.staworth.com/) | [Octav API Documentation](https://docs.octav.fi/api) | [Beefy 2025 Article](https://beefy.com/articles/staworth-octav-financial-hub/) |
+---
+**Learn More:**
+
+| [Beefy Financial Hub](https://beefy.staworth.com/) | [Octav API Documentation](https://docs.octav.fi/api) | [Beefy 2025 Article](https://beefy.com/articles/staworth-octav-financial-systems/) |
 | - | - | - |
