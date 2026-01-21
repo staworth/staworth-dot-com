@@ -161,16 +161,6 @@ Key style classes:
 - **No Build-Time Data Fetching**: All data is fetched at runtime from the API
 - **Route Redirect**: /products redirects to /articles for backward compatibility
 
-## 📝 License
-
-MIT - See LICENSE file for details
-
 ## 👤 Author
 
-[jackgale.eth](https://github.com/iamjackgale) - jack.gale@icloud.com
-
-## 🔗 Links
-
-- [GitHub Repository](https://github.com/Staworth/staworth-dot-com)
-- [Staworth Organization](https://staworth.com)
-- [Gnosis Delegate Profile](https://forum.gnosis.io/t/staworth-jackgale-eth-delegate-platform/8770)
+[jackgale.eth](https://github.com/iamjackgale)
