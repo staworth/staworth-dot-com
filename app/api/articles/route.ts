@@ -24,11 +24,14 @@ export async function GET() {
         const fileContent = fs.readFileSync(filePath, 'utf8');
         const { data } = matter(fileContent);
 
+        const tags = data.tags?.map((tag: string) => tag.toUpperCase()) || ['ARTICLE'];
+
         return {
           href: `/articles/${slug}`,
           title: data.title || slug,
           date: data.date ? formatDate(data.date) : formatDate(new Date().toISOString()),
-          category: data.tags?.[0]?.toUpperCase() || 'ARTICLE',
+          category: tags[0],
+          tags: tags,
           description: data.short_description || '',
           image: data.header_image?.replace(/^\.\.\/\.\.\/\.\.\/public/, '') || '/logos/Staworth_1_1_Black.webp',
         };
