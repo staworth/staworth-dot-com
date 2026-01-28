@@ -354,10 +354,11 @@ footer > * {
     margin: 0;
 }
 
-#landing-image{
-    width: 300px;
-    display: none;
+#landing-video{
+    width: 600px;
+    display: block;
     margin-bottom: 75px;
+    object-fit: contain;
 }
 
 #landing-text{

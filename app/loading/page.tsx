@@ -14,11 +14,13 @@ export default function LoadingPage() {
     <>
       <div id="landing-container">
         {showImage && (
-          <img
-            id="landing-image"
-            src="/logos/Staworth_103_30_Black_Close.webp"
-            alt="Staworth Logo"
-            style={{ display: 'block' }}
+          <video
+            id="landing-video"
+            src="/logos/staworth.mp4"
+            autoPlay
+            muted
+            playsInline
+            loop
           />
         )}
       </div>

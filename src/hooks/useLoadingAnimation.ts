@@ -7,7 +7,7 @@ export function useLoadingAnimation(setShowImage: (show: boolean) => void, route
     }, 2000);
     const redirectTimeout = setTimeout(() => {
       router.replace('/presence');
-    }, 1000);
+    }, 2000);
     return () => {
       clearTimeout(hideTimeout);
       clearTimeout(redirectTimeout);
