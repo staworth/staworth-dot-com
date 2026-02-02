@@ -64,6 +64,18 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title="Staworth Articles (RSS)"
+          href="https://www.staworth.com/rss.xml"
+        />
+        <link
+          rel="alternate"
+          type="application/atom+xml"
+          title="Staworth Articles (Atom)"
+          href="https://www.staworth.com/atom.xml"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}

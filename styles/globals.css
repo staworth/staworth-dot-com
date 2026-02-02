@@ -759,6 +759,205 @@ a.article-link:hover, a.article-link:active{
     cursor: not-allowed !important;
 }
 
+/* === Article Subscribe Styles === */
+.subscribe-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 10px 0 40px;
+    flex-wrap: wrap;
+}
+
+.subscribe-title {
+    color: #fff;
+    font-size: 1rem;
+    letter-spacing: 0.02em;
+    margin: 0;
+}
+
+.subscribe-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.subscribe-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 2px solid #999;
+    background: black;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: border-color 0.2s, transform 0.2s;
+}
+
+.subscribe-btn:hover {
+    border-color: #03a70b;
+    transform: translateY(-1px);
+}
+
+.subscribe-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.subscribe-label {
+    line-height: 1;
+}
+
+/* === Article Filters === */
+.filter-bar {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 0 0 24px;
+    flex-wrap: wrap;
+    align-items: center;
+    max-width: 840px;
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.filter-controls {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.filter-dropdown {
+    position: relative;
+}
+
+.filter-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 11px;
+    border-radius: 20px;
+    border: 2px solid #999;
+    background: black;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: normal;
+    transition: border-color 0.2s;
+    line-height: 1;
+}
+
+.filter-button:hover,
+.filter-dropdown.is-open .filter-button {
+    border-color: #03a70b;
+}
+
+.filter-caret {
+    display: inline-block;
+    font-size: 0.85rem;
+    transition: transform 0.2s;
+}
+
+.filter-dropdown.is-open .filter-caret {
+    transform: rotate(180deg);
+}
+
+.filter-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    min-width: 125px;
+    background: #0b0b0b;
+    border: 1px solid #2c2c2c;
+    border-radius: 16px;
+    padding: 10px 12px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+    z-index: 200;
+}
+
+.filter-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #f2f2f2;
+    font-size: 0.95rem;
+    padding: 6px 0;
+}
+
+.filter-checkbox {
+    accent-color: #03a70b;
+}
+
+.filter-clear-all {
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 2px solid #999;
+    background: black;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: border-color 0.2s;
+    line-height: 1;
+}
+
+.filter-clear-all:hover {
+    border-color: #03a70b;
+}
+
+.filter-search {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 2px solid #999;
+    background: black;
+    color: #fff;
+}
+
+.filter-search-input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 1rem;
+    line-height: 1;
+    width: 180px;
+}
+
+.filter-search-input::placeholder {
+    color: #cfcfcf;
+}
+
+.filter-search-icon {
+    display: inline-flex;
+    align-items: center;
+    color: #fff;
+}
+
+@media (max-width: 640px) {
+    .filter-bar {
+        justify-content: flex-start;
+    }
+
+    .filter-search {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .filter-search-input {
+        width: 100%;
+    }
+}
+
 /* === Article Pages Styles === */
 
 .leading-normal{

@@ -7,23 +7,34 @@
   "license": "MIT",
   "dependencies": {
     "gray-matter": "^4.0.3",
+    "hast-util-sanitize": "^5.0.2",
     "next": "^16.1.1",
+    "rehype-sanitize": "^6.0.0",
+    "rehype-raw": "^7.0.0",
+    "rehype-stringify": "^10.0.0",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
     "react-markdown": "^10.1.0",
-    "remark-gfm": "^4.0.1"
+    "remark-gfm": "^4.0.1",
+    "remark-parse": "^11.0.0",
+    "remark-rehype": "^11.1.1",
+    "unified": "^11.0.5",
+    "unist-util-visit": "^5.0.0"
   },
   "packageManager": "pnpm@10.27.0+sha512.72d699da16b1179c14ba9e64dc71c9a40988cbdc65c264cb0e489db7de917f20dcf4d64d8723625f2969ba52d4b7e2a1170682d9ac2a5dcaeaab732b7e16f04a",
   "scripts": {
     "dev": "next dev -p 3000 --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "devDependencies": {
     "@types/node": "^22.10.5",
     "@types/react": "19.2.7",
     "@types/ws": "^8.5.13",
-    "typescript": "^5.7.3"
+    "typescript": "^5.7.3",
+    "vitest": "^2.1.8"
   }
 }
