@@ -5,7 +5,8 @@ sub_header: "Introducing: Staworth"
 author: "Jack Gale"
 short_description: "Staworth Limited: staunch advocacy for digital communities. Discover the principles we're built on and our journey from doubt to launch."
 preview_image: "../../../public/images/articles/introducing/Staworth_16_9_Black.webp"
-header_image: "../../../public/images/articles/introducing/grey-shapes-8.webp"
+header_media_type: "image"
+header_media_url: "/images/articles/introducing/grey-shapes-8.webp"
 keywords: ["Web3", "Onchain Equity", "Value Alignment"]
 tags: [staworth]
 ---

@@ -5,6 +5,8 @@ export type ArticleHeaderProps = {
   date: string;
   author: string;
   headerImage: string;
+  headerMediaType?: string;
+  headerMediaUrl?: string;
 };
 
 export default function ArticleHeader({
@@ -12,6 +14,8 @@ export default function ArticleHeader({
   date,
   author,
   headerImage,
+  headerMediaType,
+  headerMediaUrl,
 }: ArticleHeaderProps) {
   // Format the date for display
   const formattedDate = new Date(date).toLocaleDateString("en-GB", {
@@ -20,14 +24,52 @@ export default function ArticleHeader({
     year: "numeric",
   });
 
-  const isGif = headerImage.toLowerCase().endsWith(".gif");
-  const isMp4 = headerImage.toLowerCase().endsWith(".mp4");
+  const normalizedHeaderMediaType = (headerMediaType || "").toLowerCase();
+  const mediaUrl = headerMediaUrl || headerImage;
+  const isGif = mediaUrl.toLowerCase().endsWith(".gif");
+  const isMp4 = mediaUrl.toLowerCase().endsWith(".mp4");
+  const isYoutube = normalizedHeaderMediaType === "youtube";
+  const isVideo = normalizedHeaderMediaType === "video";
+  const isImage = normalizedHeaderMediaType === "image";
 
   return (
     <header className="article-header-container">
       {/* Row 1: Cover image/video - 100% width */}
       <div className="article-header-image">
-        {isMp4 ? (
+        {isYoutube ? (
+          <iframe
+            src={headerMediaUrl}
+            title={`${title} video`}
+            className="article-header-embed"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+          />
+        ) : isVideo ? (
+          <video
+            src={mediaUrl}
+            className="w-full h-auto"
+            autoPlay
+            loop
+            muted
+            playsInline
+          />
+        ) : isImage && isGif ? (
+          <img
+            src={mediaUrl}
+            alt={title}
+            className="w-full h-auto"
+          />
+        ) : isImage ? (
+          <Image
+            src={mediaUrl}
+            alt={title}
+            width={1200}
+            height={675}
+            className="w-full h-auto"
+            priority
+          />
+        ) : isMp4 ? (
           <video
             src={headerImage}
             className="w-full h-auto"

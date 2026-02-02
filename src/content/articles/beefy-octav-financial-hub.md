@@ -5,7 +5,8 @@ sub_header: "The Beefy Financial Hub: Staworth x Octav"
 author: "Jack Gale"
 short_description: "Deep-dive account of how Staworth, Octav and Beefy developed Beefy's Financial Hub — a transparent, automated platform for real‑time DeFi treasury insights."
 preview_image: "../../../public/images/articles/beefy-octav-financial-hub/cover.webp"
-header_image: "../../../public/images/articles/beefy-octav-financial-hub/cover.mp4"
+header_media_type: "video"
+header_media_url: "/images/articles/beefy-octav-financial-hub/cover.mp4"
 keywords: ["DeFi Accounting", "DeFi Financial Reporting", "Crypto Portfolio Intelligence", "Crypto Treasury Analytics", "DAO Treasury Reporting", "DAO Treasury Management"]
 tags: [ octav, beefy ]
 ---

@@ -3,6 +3,7 @@ import path from 'path';
 import matter from 'gray-matter';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import rehypeRaw from 'rehype-raw';
 import Image from 'next/image';
 import { Metadata } from 'next';
 import SiteNavbar from '../../../src/components/page-general/SiteNavbar';
@@ -142,6 +143,9 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
       ? data.preview_image.replace(/^\.\.\/\.\.\/\.\.\/public/, '')
       : '/images/articles/introducing/Staworth_16_9_Black.webp';
 
+  const headerMediaType = typeof data.header_media_type === 'string' ? data.header_media_type : undefined;
+  const headerMediaUrl = typeof data.header_media_url === 'string' ? data.header_media_url : undefined;
+
   return (
     <>
       <script
@@ -155,10 +159,13 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
           date={data.date || new Date().toISOString()}
           author={data.author || 'Staworth'}
           headerImage={headerImagePath}
+          headerMediaType={headerMediaType}
+          headerMediaUrl={headerMediaUrl}
         />
-        <div className="leading-normal">
+        <div className="leading-normal article-content">
           <ReactMarkdown
             remarkPlugins={[remarkGfm]}
+            rehypePlugins={[rehypeRaw]}
             components={{
               p: ({ children, ...props }) => (
                 <p className="mb-6" {...props}>{children}</p>
