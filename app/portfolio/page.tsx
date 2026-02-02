@@ -13,6 +13,12 @@ const DELEGATE_PLATFORMS: Record<string, string> = {
   gno: "https://forum.gnosis.io/t/staworth-jackgale-eth-delegate-platform/8770",
 };
 
+// Force specific assets into Core Assets when the API type is inconsistent.
+const CORE_ASSET_KEY_OVERRIDES = new Set(["eth"]);
+const CORE_ASSET_DISPLAY_OVERRIDES: Record<string, { name?: string; img?: string }> = {
+  eth: { name: "ETH", img: "/images/portfolio/eth-token.webp" },
+};
+
 export default function PortfolioPage() {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -68,10 +74,12 @@ export default function PortfolioPage() {
   const coreAssetsRows: any[] = [];
 
   Object.entries(data.positions).forEach(([key, position]: [string, any]) => {
+    const normalizedKey = key.toLowerCase();
+    const displayOverride = CORE_ASSET_DISPLAY_OVERRIDES[normalizedKey] || {};
     const row = {
       key,
-      img: position.img || "/logos/Staworth_1_1_Black.webp",
-      name: position.name || key,
+      img: displayOverride.img || position.img || "/logos/Staworth_1_1_Black.webp",
+      name: displayOverride.name || position.name || key,
       nameUrl: position.url || "",
       thesisUrl: "",
       delegateUrl: DELEGATE_PLATFORMS[key] || "",
@@ -79,9 +87,19 @@ export default function PortfolioPage() {
       value: position.value,
     };
 
-    if (position.type === 'governance') {
+    const positionType =
+      typeof position.type === "string" ? position.type.toLowerCase() : "";
+    const normalizedName =
+      typeof position.name === "string" ? position.name.toLowerCase() : "";
+    const isCoreOverride =
+      CORE_ASSET_KEY_OVERRIDES.has(normalizedKey) ||
+      CORE_ASSET_KEY_OVERRIDES.has(normalizedName);
+
+    if (positionType === "native" || isCoreOverride) {
+      coreAssetsRows.push(row);
+    } else if (positionType === "governance") {
       governanceTokensRows.push(row);
-    } else if (position.type === 'defi') {
+    } else if (positionType === "defi") {
       defiPositionsRows.push(row);
     } else {
       coreAssetsRows.push(row);
