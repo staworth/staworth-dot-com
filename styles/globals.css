@@ -478,6 +478,7 @@ a.link-preview:hover, a.link-preview:active{
     padding-bottom: 0px;
     border-radius: 30px;
     margin-bottom: 35px;
+    position: relative;
 }
 
 .article-preview, .article-preview:link, .article-preview:visited{
@@ -489,6 +490,12 @@ a.link-preview:hover, a.link-preview:active{
 
 .article-preview:hover, .article-preview:active{
     border: solid #03a70b 2px;
+}
+
+.article-preview.tag-hover,
+.article-preview.tag-hover:hover,
+.article-preview.tag-hover:active{
+    border: solid #999 2px;
 }
 
 .article-row{
@@ -551,12 +558,12 @@ a.article-link:hover, a.article-link:active{
 
 .article-date{
     width: auto;
-    margin-top: 5px;
     margin-left: 20px;
     text-align: left;
     text-decoration: underline;
     font-size: 14px;
-    height: 11px;
+    height: 20px;
+    line-height: 20px;
     color: white;
     flex: 0 0 auto;
 }
@@ -568,20 +575,37 @@ a.article-link:hover, a.article-link:active{
     align-items: center;
     margin-left: auto;
     justify-content: flex-end;
+    pointer-events: auto;
+    position: relative;
+    z-index: 2;
 }
 
 .article-category{
     width: auto;
     margin: 0;
-    height: 11px;
+    height: 20px;
     color: white;
     text-align: center;
     background-color: black;
     font-size: 10px;
-    padding: 5px;
+    line-height: 20px;
+    padding: 0 10px;
     border-radius: 10px;
     color: white;
     border: solid #444 2px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: inherit;
+    position: relative;
+    z-index: 3;
+}
+
+.article-category:hover,
+.article-category:focus-visible{
+    border-color: #03a70b;
 }
 
 .article-description{
@@ -896,6 +920,10 @@ a.article-link:hover, a.article-link:active{
     z-index: 200;
 }
 
+.filter-dropdown-tags .filter-menu {
+    min-width: calc(125px * 1.25);
+}
+
 .filter-option {
     display: flex;
     align-items: center;
@@ -906,7 +934,25 @@ a.article-link:hover, a.article-link:active{
 }
 
 .filter-checkbox {
-    accent-color: #03a70b;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    background: #0b0b0b;
+    border: 2px solid #fff;
+    border-radius: 2px;
+    display: inline-grid;
+    place-content: center;
+    cursor: pointer;
+}
+
+.filter-checkbox:checked::after {
+    content: "";
+    width: 12px;
+    height: 12px;
+    background:
+        linear-gradient(45deg, transparent 44%, #fff 44%, #fff 56%, transparent 56%),
+        linear-gradient(-45deg, transparent 44%, #fff 44%, #fff 56%, transparent 56%);
 }
 
 .filter-clear-all {

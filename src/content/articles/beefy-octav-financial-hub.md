@@ -8,7 +8,7 @@ preview_image: "../../../public/images/articles/beefy-octav-financial-hub/cover.
 header_media_type: "video"
 header_media_url: "/images/articles/beefy-octav-financial-hub/cover.mp4"
 keywords: ["DeFi Accounting", "DeFi Financial Reporting", "Crypto Portfolio Intelligence", "Crypto Treasury Analytics", "DAO Treasury Reporting", "DAO Treasury Management"]
-tags: [ octav, beefy ]
+tags: [ octav, beefy, staworth ]
 ---
 
 > This blog is a companion piece to the [Beefy article](https://beefy.com/articles/staworth-octav-financial-systems/) on new developments in 2025. It's a deep dive into building with Octav, and the technologies that comprise the new [Beefy Financial Hub](https://beefy.staworth.com/).

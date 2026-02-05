@@ -68,10 +68,17 @@ export default function PortfolioPage() {
   const coreAssetsRows: any[] = [];
 
   Object.entries(data.positions).forEach(([key, position]: [string, any]) => {
+    const normalizedKey = key.toLowerCase();
+    const normalizedName = (position.name || "").toLowerCase();
+    const isXdai = normalizedKey === "xdai" || normalizedName === "xdai";
+    const isEth = normalizedKey === "eth" || normalizedName === "ethereum" || normalizedName === "eth";
+
+    const displayName = isXdai ? "Savings xDAI" : isEth ? "ETH" : (position.name || key);
+
     const row = {
       key,
       img: position.img || "/logos/Staworth_1_1_Black.webp",
-      name: position.name || key,
+      name: displayName,
       nameUrl: position.url || "",
       thesisUrl: "",
       delegateUrl: DELEGATE_PLATFORMS[key] || "",

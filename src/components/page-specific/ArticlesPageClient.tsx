@@ -1,7 +1,7 @@
 "use client";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useMemo } from "react";
 import { useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams, usePathname } from "next/navigation";
 
 import SiteNavbar from "../page-general/SiteNavbar";
 import SiteFooter from "../page-general/SiteFooter";
@@ -13,14 +13,18 @@ import PageNavigation from "../page-general/PageNavigation";
 import ArticleSubscribe from "./ArticleSubscribe";
 import ArticleFilters from "./ArticleFilters";
 
-const VALID_TAGS = new Set(["beefy", "staworth", "octav", "kpk"]);
+const VALID_TAGS = new Set(["beefy", "staworth", "octav", "kpk", "accountant quits"]);
 const VALID_YEARS = new Set(["2023", "2024", "2025", "2026"]);
+const VALID_TYPES = new Set(["article", "video", "link"]);
 
 export default function ArticlesPageClient() {
   const [links, setLinks] = useState<ArticleLink[]>([]);
   const [loading, setLoading] = useState(true);
   const router = useRouter();
+  const pathname = usePathname();
   const searchParams = useSearchParams();
+  const searchParamsString = searchParams?.toString() ?? "";
+  const parsedParams = useMemo(() => new URLSearchParams(searchParamsString), [searchParamsString]);
   const hasInitializedFilters = useRef(false);
 
   useEffect(() => {
@@ -39,6 +43,7 @@ export default function ArticlesPageClient() {
         const apiArticles = apiData.map((item: any) => ({
           ...item,
           href: item.link,
+          headerMediaType: null,
         }));
 
         // Fetch markdown-based articles
@@ -95,16 +100,22 @@ export default function ArticlesPageClient() {
   const [page, setPage] = useState(1);
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const [selectedYears, setSelectedYears] = useState<string[]>([]);
+  const [selectedTypes, setSelectedTypes] = useState<string[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
 
+  const normalizeList = (values: string[]) => Array.from(new Set(values)).sort();
+
   const parseFilterValues = (key: string, allowed: Set<string>) => {
-    const rawValues = searchParams?.getAll(key) ?? [];
+    const rawValues = parsedParams.getAll(key);
     const splitValues = rawValues.flatMap((value) => value.split(","));
     const normalized = splitValues
       .map((value) => value.trim().toLowerCase())
       .filter((value) => value && allowed.has(value));
-    return Array.from(new Set(normalized));
+    return normalizeList(normalized);
   };
+
+  const arraysEqual = (a: string[], b: string[]) =>
+    a.length === b.length && a.every((value, index) => value === b[index]);
 
   const toggleSelection = (value: string, setter: React.Dispatch<React.SetStateAction<string[]>>) => {
     setter((prev) => (prev.includes(value) ? prev.filter((item) => item !== value) : [...prev, value]));
@@ -115,28 +126,32 @@ export default function ArticlesPageClient() {
   };
 
   useEffect(() => {
-    if (!searchParams) return;
     const incomingTags = parseFilterValues("type", VALID_TAGS);
     const incomingYears = parseFilterValues("year", VALID_YEARS);
-    const incomingSearch = (searchParams.get("search") ?? "").trim();
-    const incomingPageRaw = (searchParams.get("page") ?? "").trim();
+    const incomingTypes = parseFilterValues("format", VALID_TYPES);
+    const incomingSearch = (parsedParams.get("search") ?? "").trim();
+    const incomingPageRaw = (parsedParams.get("page") ?? "").trim();
     const incomingPage = Math.max(1, Number.parseInt(incomingPageRaw, 10) || 1);
 
-    setSelectedTags(incomingTags);
-    setSelectedYears(incomingYears);
-    setSearchQuery(incomingSearch);
-    setPage(incomingPage);
+    setSelectedTags((prev) => (arraysEqual(prev, incomingTags) ? prev : incomingTags));
+    setSelectedYears((prev) => (arraysEqual(prev, incomingYears) ? prev : incomingYears));
+    setSelectedTypes((prev) => (arraysEqual(prev, incomingTypes) ? prev : incomingTypes));
+    setSearchQuery((prev) => (prev === incomingSearch ? prev : incomingSearch));
+    setPage((prev) => (prev === incomingPage ? prev : incomingPage));
     hasInitializedFilters.current = true;
-  }, [searchParams]);
+  }, [searchParamsString, parsedParams]);
 
   useEffect(() => {
-    if (!hasInitializedFilters.current) return;
+    if (!hasInitializedFilters.current || loading) return;
     const params = new URLSearchParams();
     if (selectedTags.length > 0) {
-      params.set("type", selectedTags.join(","));
+      params.set("type", normalizeList(selectedTags).join(","));
     }
     if (selectedYears.length > 0) {
-      params.set("year", selectedYears.join(","));
+      params.set("year", normalizeList(selectedYears).join(","));
+    }
+    if (selectedTypes.length > 0) {
+      params.set("format", normalizeList(selectedTypes).join(","));
     }
     if (searchQuery.trim().length > 0) {
       params.set("search", searchQuery.trim());
@@ -145,9 +160,17 @@ export default function ArticlesPageClient() {
       params.set("page", String(page));
     }
     const query = params.toString();
+    const currentQuery = searchParamsString;
+    const currentUrl = currentQuery ? `${pathname}?${currentQuery}` : pathname;
     const nextUrl = query ? `/articles?${query}` : "/articles";
+    if (query === currentQuery) {
+      return;
+    }
+    if (nextUrl === currentUrl) {
+      return;
+    }
     router.replace(nextUrl, { scroll: false });
-  }, [selectedTags, selectedYears, searchQuery, page, router]);
+  }, [selectedTags, selectedYears, selectedTypes, searchQuery, page, router, searchParamsString, pathname, loading]);
 
   const filteredLinks = links.filter((article) => {
     const tagCandidates = article.tags && article.tags.length > 0 ? article.tags : [article.category];
@@ -158,6 +181,14 @@ export default function ArticlesPageClient() {
 
     const tagMatch = selectedTags.length === 0 || selectedTags.some((tag) => normalizedTags.includes(tag));
     const yearMatch = selectedYears.length === 0 || (year ? selectedYears.includes(year) : false);
+    const isInternal = article.href.startsWith("/");
+    const mediaType = (article.headerMediaType ?? "").toLowerCase();
+    const articleType = !isInternal
+      ? "link"
+      : mediaType === "youtube"
+        ? "video"
+        : "article";
+    const typeMatch = selectedTypes.length === 0 || selectedTypes.includes(articleType);
     const query = searchQuery.trim().toLowerCase();
     const searchHaystack = [
       article.title,
@@ -169,7 +200,7 @@ export default function ArticlesPageClient() {
       .toLowerCase();
     const searchMatch = query.length === 0 || searchHaystack.includes(query);
 
-    return tagMatch && yearMatch && searchMatch;
+    return tagMatch && yearMatch && typeMatch && searchMatch;
   });
 
   const totalPages = Math.ceil(filteredLinks.length / ARTICLES_PER_PAGE);
@@ -178,6 +209,7 @@ export default function ArticlesPageClient() {
   const currentArticles = filteredLinks.slice(startIdx, endIdx);
 
   useEffect(() => {
+    if (loading) return;
     if (totalPages === 0 && page !== 1) {
       setPage(1);
       return;
@@ -202,6 +234,7 @@ export default function ArticlesPageClient() {
         <ArticleFilters
           selectedTags={selectedTags}
           selectedYears={selectedYears}
+          selectedTypes={selectedTypes}
           onToggleTag={(tag) => {
             setPage(1);
             toggleSelection(tag, setSelectedTags);
@@ -210,6 +243,10 @@ export default function ArticlesPageClient() {
             setPage(1);
             toggleSelection(year, setSelectedYears);
           }}
+          onToggleType={(type) => {
+            setPage(1);
+            toggleSelection(type, setSelectedTypes);
+          }}
           onClearTags={() => {
             setPage(1);
             clearSelection(setSelectedTags);
@@ -217,6 +254,10 @@ export default function ArticlesPageClient() {
           onClearYears={() => {
             setPage(1);
             clearSelection(setSelectedYears);
+          }}
+          onClearTypes={() => {
+            setPage(1);
+            clearSelection(setSelectedTypes);
           }}
           searchQuery={searchQuery}
           onSearchChange={(value) => {
@@ -229,7 +270,15 @@ export default function ArticlesPageClient() {
           }}
         />
         {currentArticles.map((article, idx) => (
-          <Article key={startIdx + idx} {...article} />
+          <Article
+            key={startIdx + idx}
+            {...article}
+            onTagClick={(tag) => {
+              const normalized = tag.toLowerCase();
+              setPage(1);
+              setSelectedTags([normalized]);
+            }}
+          />
         ))}
         {totalPages > 1 && (
           <PageNavigation page={page} totalPages={totalPages} setPage={setPage} />
