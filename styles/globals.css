@@ -1423,6 +1423,46 @@ a.portfolio-data:hover, a.portfolio-data:active{
     border-color: #03a70b;
 }
 
+.contact-button-loading {
+    position: relative;
+    isolation: isolate;
+    border-color: transparent;
+    overflow: hidden;
+}
+
+.contact-button-loading::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: inherit;
+    background: conic-gradient(
+        from 0deg,
+        transparent 0deg 300deg,
+        #03a70b 332deg 348deg,
+        transparent 360deg
+    );
+    animation: contact-border-spin 1.1s linear infinite;
+    z-index: -2;
+}
+
+.contact-button-loading::after {
+    content: "";
+    position: absolute;
+    inset: 2px;
+    border-radius: inherit;
+    background: black;
+    z-index: -1;
+}
+
+@keyframes contact-border-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 .contact-button-secondary {
     display: inline-flex;
     align-items: center;

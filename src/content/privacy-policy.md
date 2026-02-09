@@ -1,7 +1,9 @@
 ---
-title: Privacy Policy
-date: 2026-02-09
+date: 2026-02-09T12:00:00Z
+title: Staworth Limited Privacy Policy
+short_description: "How Staworth Limited collects, uses, stores, and protects personal data across its websites and services."
 author: Staworth Limited
+keywords: ["Privacy Policy", "Data Protection", "UK GDPR", "DPA 2018", "PECR", "Staworth"]
 ---
 
 [Staworth Limited (UK Company No. 15540474)](https://find-and-update.company-information.service.gov.uk/company/15540474) (**"Staworth"**) is a private limited company registered in England. We are committed to the proper and transparent handling of personal data, in line with our responsibilities under English Law.
@@ -40,9 +42,9 @@ We may use the personal data that you have submitted for the purposes described 
 
 | Personal Data Uses                                      | Lawful Bases for Use                                                                                                                                                                                                                         |
 | ------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1. respond to questions or requests                     | Consent, where required (UK GDPR Article 6(1)(a)). Performance of steps requested by you prior to entering into a business relationship (UK GDPR Article 6(1)(b)). Compliance with legal obligations (UK GDPR Article 6(1)(c)).         |
-| 2. evaluate potential opportunities and collaborations  | Performance of steps requested by you prior to entering into a business relationship (UK GDPR Article 6(1)(b)). Legitimate interests in operating and improving our services (UK GDPR Article 6(1)(f)).                                 |
-| 3. maintain basic communication records                 | Legitimate interests in operating and improving our services (UK GDPR Article 6(1)(f)).                                                                                                                                                     |
+| 1. Respond to questions or requests                     | Consent, where required (UK GDPR Article 6(1)(a)). Performance of steps requested by you prior to entering into a business relationship (UK GDPR Article 6(1)(b)). Compliance with legal obligations (UK GDPR Article 6(1)(c)).         |
+| 2. Evaluate potential opportunities and collaborations  | Performance of steps requested by you prior to entering into a business relationship (UK GDPR Article 6(1)(b)). Legitimate interests in operating and improving our services (UK GDPR Article 6(1)(f)).                                 |
+| 3. Maintain basic communication records                 | Legitimate interests in operating and improving our services (UK GDPR Article 6(1)(f)).                                                                                                                                                     |
 
 For our communication records, we retain historic emails to maintain contact with those who have expressed interest in our business in case future opportunities for business or feedback on our services may arise.
 

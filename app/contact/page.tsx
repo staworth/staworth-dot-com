@@ -16,6 +16,9 @@ export default function ContactPage() {
   const [submitting, setSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
   const [submitMessage, setSubmitMessage] = useState("");
+  const [emailValue, setEmailValue] = useState("");
+  const [subjectValue, setSubjectValue] = useState("");
+  const [messageValue, setMessageValue] = useState("");
   const [showEmailFallbackModal, setShowEmailFallbackModal] = useState(false);
   const [gmailFallbackUrl, setGmailFallbackUrl] = useState(gmailBaseCompose);
   const emailFallbackTimerRef = useRef<number | null>(null);
@@ -80,15 +83,17 @@ export default function ContactPage() {
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const form = event.currentTarget;
-    const formData = new FormData(form);
-    const email = String(formData.get("email") || "").trim();
-    const subject = String(formData.get("subject") || "").trim();
-    const message = String(formData.get("message") || "").trim();
+    if (submitStatus === "success" || submitting) return;
+
+    const email = emailValue.trim();
+    const subject = subjectValue.trim();
+    const message = messageValue.trim();
 
     setSubmitting(true);
     setSubmitStatus("idle");
     setSubmitMessage("");
+    const minSendingDurationMs = 2000;
+    const startedAt = Date.now();
 
     try {
       const response = await fetch("/api/contact", {
@@ -104,10 +109,21 @@ export default function ContactPage() {
         throw new Error(data.error || "Unable to send form right now.");
       }
 
-      form.reset();
+      const elapsed = Date.now() - startedAt;
+      const remaining = Math.max(0, minSendingDurationMs - elapsed);
+      if (remaining > 0) {
+        await new Promise((resolve) => window.setTimeout(resolve, remaining));
+      }
+
       setSubmitStatus("success");
-      setSubmitMessage("Message sent successfully. We'll be in touch.");
+      setSubmitMessage("");
     } catch (error) {
+      const elapsed = Date.now() - startedAt;
+      const remaining = Math.max(0, minSendingDurationMs - elapsed);
+      if (remaining > 0) {
+        await new Promise((resolve) => window.setTimeout(resolve, remaining));
+      }
+
       setSubmitStatus("error");
       setSubmitMessage(error instanceof Error ? error.message : "Unable to send form right now.");
     } finally {
@@ -137,6 +153,9 @@ export default function ContactPage() {
               type="email"
               required
               autoComplete="email"
+              value={emailValue}
+              onChange={(event) => setEmailValue(event.currentTarget.value)}
+              disabled={submitStatus === "success"}
             />
 
             <label className="contact-label" htmlFor="subject">Subject</label>
@@ -147,6 +166,9 @@ export default function ContactPage() {
               type="text"
               required
               maxLength={140}
+              value={subjectValue}
+              onChange={(event) => setSubjectValue(event.currentTarget.value)}
+              disabled={submitStatus === "success"}
             />
 
             <label className="contact-label" htmlFor="message">Message</label>
@@ -157,12 +179,19 @@ export default function ContactPage() {
               required
               rows={8}
               maxLength={5000}
+              value={messageValue}
+              onChange={(event) => setMessageValue(event.currentTarget.value)}
               onInput={handleMessageInput}
+              disabled={submitStatus === "success"}
             />
 
             <div className="contact-actions">
-              <button className="contact-button" type="submit" disabled={submitting}>
-                {submitting ? "Sending..." : "Send Form"}
+              <button
+                className={`contact-button ${submitting ? "contact-button-loading" : ""}`}
+                type="submit"
+                disabled={submitting || submitStatus === "success"}
+              >
+                {submitting ? "Sending..." : submitStatus === "success" ? "Sent!" : "Send Form"}
               </button>
               <a
                 className="contact-button contact-button-secondary"
@@ -172,7 +201,7 @@ export default function ContactPage() {
                 Email Us
               </a>
             </div>
-            {submitStatus !== "idle" && (
+            {submitStatus === "error" && (
               <p className="contact-privacy-note" role="status" aria-live="polite">
                 {submitMessage}
               </p>
