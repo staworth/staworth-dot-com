@@ -790,8 +790,19 @@ a.article-link:hover, a.article-link:active{
 .leading-normal ul,
 .leading-normal ol {
     margin-left: 0;
-    padding-left: 0;
-    list-style-position: inside;
+    padding-left: 1.4em;
+    list-style-position: outside;
+}
+
+.leading-normal li {
+    padding-left: 0.2em;
+}
+
+.leading-normal ul ul,
+.leading-normal ul ol,
+.leading-normal ol ul,
+.leading-normal ol ol {
+    padding-left: 1.4em;
 }
 
 .leading-normal img {

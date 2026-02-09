@@ -57,14 +57,6 @@ We do not use any personal data:
 - for any purpose that is incompatible with the reason it was originally collected; or
 - in any way that is unlawful, unfair, misleading, or not transparent.
 
-## Lawful Basis
-
-As applicable, we will process personal data provided through this website only on the basis of one or more of the following bases:
-
-
-- Compliance with legal obligations (UK GDPR Article 6(1)(c)); or
-- Consent, where required (UK GDPR Article 6(1)(a)).
-
 ## Data Retention
 
 We retain personal data only for as long as necessary to fulfil the purposes described above, and no longer than is required by law. As described below, you have the right to request the destruction (or end of retention) for any of your personal data that we hold, and you can exercise this right by contacting us at [{{CONTACT_TO_EMAIL}}](mailto:{{CONTACT_TO_EMAIL}}).
@@ -73,15 +65,15 @@ We retain personal data only for as long as necessary to fulfil the purposes des
 
 If you are in the UK, you have rights under UK data protection law, including the right to:
 
-- Be informed about how your personal data is used
-- Request access to your personal data
-- Request correction of inaccurate or incomplete personal data
-- Request erasure of your personal data in certain circumstances
-- Request restriction of processing in certain circumstances
-- Object to processing based on legitimate interests
-- Request portability of personal data you have provided to us, where applicable
-- Withdraw consent at any time, where processing is based on consent
-- Request review of decisions based solely on automated processing, where applicable
+- be informed about how your personal data is used
+- request access to your personal data
+- request correction of inaccurate or incomplete personal data
+- request erasure of your personal data in certain circumstances
+- request restriction of processing in certain circumstances
+- object to processing based on legitimate interests
+- request portability of personal data you have provided to us, where applicable
+- withdraw consent at any time, where processing is based on consent
+- request review of decisions based solely on automated processing, where applicable
 
 To exercise these rights, contact us at [{{CONTACT_TO_EMAIL}}](mailto:{{CONTACT_TO_EMAIL}}). We may need to verify your identity before completing a request. We will usually respond within one month, though this may be extended where permitted by law.
 
