@@ -787,6 +787,24 @@ a.article-link:hover, a.article-link:active{
     margin: 32px 0;
 }
 
+.leading-normal ul,
+.leading-normal ol {
+    margin-left: 0;
+    padding-left: 1.4em;
+    list-style-position: outside;
+}
+
+.leading-normal li {
+    padding-left: 0.2em;
+}
+
+.leading-normal ul ul,
+.leading-normal ul ol,
+.leading-normal ol ul,
+.leading-normal ol ol {
+    padding-left: 1.4em;
+}
+
 .leading-normal img {
     width: 90%;
     aspect-ratio: 16 / 9;
@@ -1329,5 +1347,186 @@ a.portfolio-data:hover, a.portfolio-data:active{
 
     .article-header-title {
         font-size: 24px;
+    }
+}
+
+/* === Contact Page Styles === */
+.contact-main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px 30px 20px;
+}
+
+.contact-card {
+    background-color: #cccccc21;
+    border: 2px solid #999;
+    border-radius: 20px;
+    padding: 28px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.contact-label {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.contact-input,
+.contact-textarea {
+    width: 100%;
+    box-sizing: border-box;
+    background: #111;
+    color: white;
+    border: 1px solid #444;
+    border-radius: 14px;
+    padding: 12px 14px;
+    font-size: 15px;
+}
+
+.contact-textarea {
+    resize: none;
+    min-height: 160px;
+    max-height: 320px;
+    overflow-y: auto;
+}
+
+.contact-input:focus,
+.contact-textarea:focus {
+    outline: none;
+    border-color: #03a70b;
+}
+
+.contact-actions {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 12px;
+    margin-top: 4px;
+}
+
+.contact-button {
+    border: 2px solid #999;
+    background: black;
+    color: white;
+    border-radius: 999px;
+    padding: 10px 18px;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+}
+
+.contact-button:hover {
+    border-color: #03a70b;
+}
+
+.contact-button-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-privacy-note {
+    margin: 20px 2px 0 2px;
+    font-size: 12px;
+    color: #cfcfcf;
+}
+
+.contact-privacy-note a,
+.contact-privacy-note a:visited {
+    color: white;
+}
+
+.contact-privacy-note a:hover {
+    color: #03a70b;
+}
+
+.contact-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.contact-modal-card {
+    width: 100%;
+    max-width: 520px;
+    background: #111;
+    border: 2px solid #999;
+    border-radius: 20px;
+    padding: 24px;
+}
+
+.contact-modal-title {
+    margin: 0 0 10px 0;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.contact-modal-body {
+    margin: 0;
+    line-height: 1.5;
+    color: #e8e8e8;
+}
+
+.contact-modal-actions {
+    margin-top: 18px;
+    display: flex;
+    gap: 12px;
+}
+
+/* === Privacy Page Styles === */
+.privacy-main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px 30px 20px;
+}
+
+.privacy-card {
+    background-color: #cccccc21;
+    border: 2px solid #999;
+    border-radius: 20px;
+    padding: 30px;
+}
+
+.privacy-markdown {
+    font-size: 15px;
+    line-height: 1.6;
+    color: white;
+}
+
+.privacy-markdown h1,
+.privacy-markdown h2,
+.privacy-markdown h3 {
+    margin-top: 0;
+}
+
+.privacy-markdown a {
+    color: white;
+}
+
+.privacy-markdown a:hover {
+    color: #03a70b;
+}
+
+@media (max-width: 768px) {
+    .contact-card,
+    .privacy-card {
+        padding: 20px;
+    }
+
+    .contact-button {
+        text-align: center;
+    }
+
+    .contact-modal-card {
+        padding: 20px;
     }
 }

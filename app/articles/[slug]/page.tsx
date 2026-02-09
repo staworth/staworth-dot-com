@@ -8,6 +8,7 @@ import { Metadata } from 'next';
 import SiteNavbar from '../../../src/components/page-general/SiteNavbar';
 import SiteFooter from '../../../src/components/page-general/SiteFooter';
 import ArticleHeader from '../../../src/components/page-specific/ArticleHeader';
+import PageLoaderGate from '../../../src/components/page-general/PageLoaderGate';
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
@@ -62,15 +63,21 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 }
 
 export default async function ArticlePage({ params }: { params: Promise<{ slug: string }> }) {
+  const contactEmail = process.env.CONTACT_TO_EMAIL || '';
   const { slug } = await params;
   const filePath = path.join(process.cwd(), 'src/content/articles', `${slug}.md`);
   let fileContent;
   try {
     fileContent = fs.readFileSync(filePath, 'utf8');
   } catch {
-    return <div>Article not found</div>;
+    return (
+      <PageLoaderGate>
+        <div>Article not found</div>
+      </PageLoaderGate>
+    );
   }
   const { content, data } = matter(fileContent);
+  const resolvedContent = content.replaceAll('{{CONTACT_TO_EMAIL}}', contactEmail);
 
   // Clean up the header image path for structured data
   const ogImage = data.header_image
@@ -121,7 +128,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
         description: 'Staunch advocacy for digital communities',
         contactPoint: {
           '@type': 'ContactPoint',
-          email: 'hello@staworth.com',
+          email: contactEmail,
           contactType: 'customer service',
         },
       },
@@ -135,15 +142,14 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
   };
 
   // Clean up header image path for the ArticleHeader component
-  // Use header_image if specified, otherwise fall back to preview_image
-  const headerImagePath = data.header_image
-    ? data.header_image.replace(/^\.\.\/\.\.\/\.\.\/public/, '')
-    : data.preview_image
-      ? data.preview_image.replace(/^\.\.\/\.\.\/\.\.\/public/, '')
-      : '/images/articles/introducing/Staworth_16_9_Black.webp';
+  // No fallback: render no header image if metadata doesn't provide one.
+  const headerImagePath =
+    typeof data.header_image === "string"
+      ? data.header_image.replace(/^\.\.\/\.\.\/\.\.\/public/, "")
+      : undefined;
 
   return (
-    <>
+    <PageLoaderGate>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
@@ -231,11 +237,11 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
               ),
             }}
           >
-            {content}
+            {resolvedContent}
           </ReactMarkdown>
         </div>
       </main>
       <SiteFooter />
-    </>
+    </PageLoaderGate>
   );
 }
