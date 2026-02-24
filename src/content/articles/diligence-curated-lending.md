@@ -7,7 +7,7 @@ short_description: "Lessons in DeFi risk management for curated lending protocol
 preview_image: "../../../public/images/articles/diligence-curated-lending/cover.webp"
 header_media_type: "youtube"
 header_media_url: "https://www.youtube.com/embed/HxR5_UlGZws?si=9skZ2QUc60Q0ujhT"
-keywords: ["Crypto Treasury Management", "DeFi Due Diligence", "Curated Lending Markets"]
+keywords: ["Crypto Treasury Management", "DeFi Due Diligence", "Curated Lending Markets", "Stream Finance"]
 tags: [ staworth, accountant quits ]
 ---
 
