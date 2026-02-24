@@ -103,7 +103,7 @@ export default function ArticleHeader({
 
       {/* Row 3: Date (left 50%) and Author (right 50%) */}
       <div className="article-header-meta">
-        <span className="article-header-date">{formattedDate}</span>
+        <span className="article-header-date">{`${datePrefix}${formattedDate}`}</span>
         <span className="article-header-author">{author}</span>
       </div>
     </header>
