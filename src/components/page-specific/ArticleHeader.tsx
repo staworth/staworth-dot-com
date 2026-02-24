@@ -3,8 +3,9 @@ import Image from "next/image";
 export type ArticleHeaderProps = {
   title: string;
   date: string;
+  datePrefix?: string;
   author: string;
-  headerImage: string;
+  headerImage?: string;
   headerMediaType?: string;
   headerMediaUrl?: string;
 };
@@ -12,6 +13,7 @@ export type ArticleHeaderProps = {
 export default function ArticleHeader({
   title,
   date,
+  datePrefix = "",
   author,
   headerImage,
   headerMediaType,
@@ -25,7 +27,7 @@ export default function ArticleHeader({
   });
 
   const normalizedHeaderMediaType = (headerMediaType || "").toLowerCase();
-  const mediaUrl = headerMediaUrl || headerImage;
+  const mediaUrl = headerMediaUrl || headerImage || "";
   const isGif = mediaUrl.toLowerCase().endsWith(".gif");
   const isMp4 = mediaUrl.toLowerCase().endsWith(".mp4");
   const isYoutube = normalizedHeaderMediaType === "youtube";
@@ -36,7 +38,7 @@ export default function ArticleHeader({
     <header className="article-header-container">
       {/* Row 1: Cover image/video - 100% width */}
       <div className="article-header-image">
-        {isYoutube ? (
+        {isYoutube && headerMediaUrl ? (
           <iframe
             src={headerMediaUrl}
             title={`${title} video`}
@@ -69,31 +71,31 @@ export default function ArticleHeader({
             className="w-full h-auto"
             priority
           />
-        ) : isMp4 ? (
+        ) : mediaUrl && isMp4 ? (
           <video
-            src={headerImage}
+            src={mediaUrl}
             className="w-full h-auto"
             autoPlay
             loop
             muted
             playsInline
           />
-        ) : isGif ? (
+        ) : mediaUrl && isGif ? (
           <img
-            src={headerImage}
+            src={mediaUrl}
             alt={title}
             className="w-full h-auto"
           />
-        ) : (
+        ) : mediaUrl ? (
           <Image
-            src={headerImage}
+            src={mediaUrl}
             alt={title}
             width={1200}
             height={675}
             className="w-full h-auto"
             priority
           />
-        )}
+        ) : null}
       </div>
 
       {/* Row 2: Title - 100% width */}
