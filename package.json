@@ -29,7 +29,7 @@
     "start": "next start",
     "lint": "next lint",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
     "update:privacy-date": "node scripts/update-privacy-policy-date.mjs",
     "setup:githooks": "git config core.hooksPath .githooks"
   },
