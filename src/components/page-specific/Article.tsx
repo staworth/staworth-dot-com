@@ -76,9 +76,7 @@ export default function Article({
           <div className="article-image-wrapper article-image-mobile mobile-only">
             <img className="article-image" src={image} alt={title} />
           </div>
-          <div className="article-description-box">
-            <p className="article-description">{description}</p>
-          </div>
+          <p className="article-description">{description}</p>
         </div>
         {/* Desktop image */}
         <div className="article-column image-col desktop-only">

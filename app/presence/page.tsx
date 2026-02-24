@@ -2,7 +2,7 @@
 
 import React, { useEffect } from "react";
 import { useState } from "react";
-import { usePathname, useRouter } from "next/navigation";
+import Image from "next/image";
 
 import SiteNavbar from "../../src/components/page-general/SiteNavbar";
 import SiteFooter from "../../src/components/page-general/SiteFooter";
@@ -12,18 +12,9 @@ import Loader from "../../src/components/page-general/Loader";
 import PresenceLink from "../../src/components/page-specific/PresenceLink";
 import PageNavigation from "../../src/components/page-general/PageNavigation";
 
-const ICO_LINK = {
-  href: "https://ico.org.uk/ESDWebPages/Entry/ZB781910",
-  img: "/images/links/ico.webp",
-  label: "ICO",
-};
-
 export default function PresencePage() {
-  const router = useRouter();
-  const pathname = usePathname();
   const [links, setLinks] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
-  const [page, setPage] = useState(1);
   
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -43,14 +34,12 @@ export default function PresencePage() {
           ...item,
           href: item.link
         }));
-        const hasIcoLink = transformedData.some((item: any) => item.href === ICO_LINK.href);
-        const linksWithIco = hasIcoLink ? transformedData : [...transformedData, ICO_LINK];
         const elapsedTime = Date.now() - startTime;
         const remainingTime = Math.max(0, 800 - elapsedTime);
 
         setTimeout(() => {
           if (isMounted) {
-            setLinks(linksWithIco);
+            setLinks(transformedData);
             setLoading(false);
           }
         }, remainingTime);
@@ -61,7 +50,6 @@ export default function PresencePage() {
 
         setTimeout(() => {
           if (isMounted) {
-            setLinks([ICO_LINK]);
             setLoading(false);
           }
         }, remainingTime);
@@ -75,47 +63,8 @@ export default function PresencePage() {
   }, []);
 
   const LINKS_PER_PAGE = 6;
+  const [page, setPage] = useState(1);
   const totalPages = Math.ceil(links.length / LINKS_PER_PAGE);
-
-  useEffect(() => {
-    const syncPageFromUrl = () => {
-      const rawPage = new URLSearchParams(window.location.search).get("page");
-      const parsedPage = rawPage ? Number(rawPage) : 1;
-      const nextPage = Number.isInteger(parsedPage) && parsedPage > 0 ? parsedPage : 1;
-      setPage(nextPage);
-    };
-
-    syncPageFromUrl();
-    window.addEventListener("popstate", syncPageFromUrl);
-    return () => {
-      window.removeEventListener("popstate", syncPageFromUrl);
-    };
-  }, []);
-
-  useEffect(() => {
-    if (loading || totalPages === 0) return;
-    if (page > totalPages) {
-      setPage(totalPages);
-    }
-  }, [loading, page, totalPages]);
-
-  useEffect(() => {
-    const currentQueryPage = new URLSearchParams(window.location.search).get("page");
-    const targetQueryPage = page > 1 ? String(page) : null;
-    if (currentQueryPage === targetQueryPage) return;
-
-    const params = new URLSearchParams(window.location.search);
-    if (targetQueryPage) {
-      params.set("page", targetQueryPage);
-    } else {
-      params.delete("page");
-    }
-
-    const queryString = params.toString();
-    const nextUrl = queryString ? `${pathname}?${queryString}` : pathname;
-    router.replace(nextUrl, { scroll: false });
-  }, [page, pathname, router]);
-
   const startIdx = (page - 1) * LINKS_PER_PAGE;
   const endIdx = startIdx + LINKS_PER_PAGE;
   const currentLinks = links.slice(startIdx, endIdx);

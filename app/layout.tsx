@@ -35,8 +35,6 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
-  const contactEmail = process.env.CONTACT_TO_EMAIL || '';
-
   // Organization structured data for homepage
   const organizationSchema = {
     '@context': 'https://schema.org',
@@ -51,10 +49,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     description: 'Web3 professional services firm dedicated to staunch advocacy for digital communities',
     slogan: 'Staunch advocacy for digital communities',
     foundingDate: '2024',
-    email: contactEmail,
+    email: 'hello@staworth.com',
     contactPoint: {
       '@type': 'ContactPoint',
-      email: contactEmail,
+      email: 'hello@staworth.com',
       contactType: 'customer service',
     },
     sameAs: [

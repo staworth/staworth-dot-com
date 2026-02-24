@@ -23,15 +23,12 @@
   },
   "packageManager": "pnpm@10.27.0+sha512.72d699da16b1179c14ba9e64dc71c9a40988cbdc65c264cb0e489db7de917f20dcf4d64d8723625f2969ba52d4b7e2a1170682d9ac2a5dcaeaab732b7e16f04a",
   "scripts": {
-    "prepare": "node scripts/setup-githooks.mjs",
     "dev": "next dev -p 3000 --turbopack",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "test": "vitest run",
-    "test:watch": "vitest",
-    "update:privacy-date": "node scripts/update-privacy-policy-date.mjs",
-    "setup:githooks": "git config core.hooksPath .githooks"
+    "test:watch": "vitest"
   },
   "devDependencies": {
     "@types/node": "^22.10.5",
