@@ -33,6 +33,7 @@ export async function GET() {
           category: tags[0],
           tags: tags,
           description: data.short_description || '',
+          headerMediaType: data.header_media_type || null,
           image: data.preview_image?.replace(/^\.\.\/\.\.\/\.\.\/public/, '')
             || data.header_image?.replace(/^\.\.\/\.\.\/\.\.\/public/, '')
             || '/logos/Staworth_1_1_Black.webp',

@@ -5,9 +5,10 @@ sub_header: "The Beefy Financial Hub: Staworth x Octav"
 author: "Jack Gale"
 short_description: "Deep-dive account of how Staworth, Octav and Beefy developed Beefy's Financial Hub — a transparent, automated platform for real‑time DeFi treasury insights."
 preview_image: "../../../public/images/articles/beefy-octav-financial-hub/cover.webp"
-header_image: "../../../public/images/articles/beefy-octav-financial-hub/cover.mp4"
+header_media_type: "video"
+header_media_url: "/images/articles/beefy-octav-financial-hub/cover.mp4"
 keywords: ["DeFi Accounting", "DeFi Financial Reporting", "Crypto Portfolio Intelligence", "Crypto Treasury Analytics", "DAO Treasury Reporting", "DAO Treasury Management"]
-tags: [ octav, beefy ]
+tags: [ octav, beefy, staworth ]
 ---
 
 > This blog is a companion piece to the [Beefy article](https://beefy.com/articles/staworth-octav-financial-systems/) on new developments in 2025. It's a deep dive into building with Octav, and the technologies that comprise the new [Beefy Financial Hub](https://beefy.staworth.com/).
@@ -47,13 +48,13 @@ We think that Octav can be best understood as a combination of three core servic
 
 The *"Octav Stack"* is the combination of technologies that together deliver these services:
 
-| Layer          | Accessibility                      | Description                                                                                                                                                                           |
-| -------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Infrastructure | Closed                             | The nodes, execution clients, indexers and other infrastructure needed to extract, process, and refine data across Octav's dozens of blockchains.                                 |
-| Database       | Closed; Accessible Data            | The storage and organisation of Octav's refined data, both to power Octav's apps and for user access.                                                                              |
-| API            | Open User Access                   | The web services for accessing, amending and distributing user data from the database, empowering users to integrate Octav into their own systems.                                 |
-| Web App        | Open User Access                   | The face of Octav which contains the heavy and standardised applications for analysing portfolios and accounting for transactions.                                                  |
-| Widgets        | Open User Access; User Submissions | Miniature applications within the Web App that the user can customise, or even build and share, positioning the app as both a platform and a product.                             |
+| Layer | Accessibility | Description |
+| ----- | ------------- | ----------- |
+| Infrastructure | Closed | The nodes, execution clients, indexers and other infrastructure needed to extract, process, and refine data across Octav's dozens of blockchains. |
+| Database | Closed; Accessible Data | The storage and organisation of Octav's refined data, both to power Octav's apps and for user access. |
+| API | Open User Access | The web services for accessing, amending and distributing user data from the database, empowering users to integrate Octav into their own systems. |
+| Web App | Open User Access | The face of Octav which contains the heavy and standardised applications for analysing portfolios and accounting for transactions.  |
+| Widgets | Open User Access; User Submissions | Miniature applications within the Web App that the user can customise, or even build and share, positioning the app as both a platform and a product. |
 
 Historically, Octav has always been set apart by its open approach to technology, which embraces builders and ensures users can own their own data. But in 2025, two fundamental changes took their model to the next level:
 
@@ -119,4 +120,4 @@ With Beefy's Financial Hub live and operational, we've barely begun to scratch t
 **Learn More:**
 
 | [Beefy Financial Hub](https://beefy.staworth.com/) | [Octav API Documentation](https://docs.octav.fi/api) | [Beefy 2025 Article](https://beefy.com/articles/staworth-octav-financial-systems/) |
-| --------------------------------------------------- | ----------------------------------------------------- | ------------------------------------------------------------------------------------ |
+| - | - | - |

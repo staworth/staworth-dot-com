@@ -5,7 +5,8 @@ sub_header: "Introducing: Staworth"
 author: "Jack Gale"
 short_description: "Staworth Limited: staunch advocacy for digital communities. Discover the principles we're built on and our journey from doubt to launch."
 preview_image: "../../../public/images/articles/introducing/Staworth_16_9_Black.webp"
-header_image: "../../../public/images/articles/introducing/grey-shapes-8.webp"
+header_media_type: "image"
+header_media_url: "/images/articles/introducing/grey-shapes-8.webp"
 keywords: ["Web3", "Onchain Equity", "Value Alignment"]
 tags: [staworth]
 ---
@@ -82,6 +83,6 @@ So, that's [Staworth](https://www.staworth.com/). A Web 3.0 professional service
 
 Our mission is to achieve a better value alignment through and within the decentralisation revolution.
 
-If you, the reader, feel your own alignment with these values, don't hesitate to get in touch with [{{CONTACT_TO_EMAIL}}](mailto:{{CONTACT_TO_EMAIL}}).
+If you, the reader, feel your own alignment with these values, don't hesitate to get in touch with [hello@staworth.com](mailto:hello@staworth.com).
 
 I look forward to finding out where this brave new path takes us.

@@ -8,6 +8,8 @@ export type ArticleLink = {
   tags?: string[];
   description: string;
   image: string;
+  headerMediaType?: string | null;
+  onTagClick?: (tag: string) => void;
 };
 
 export default function Article({
@@ -18,6 +20,7 @@ export default function Article({
   tags,
   description,
   image,
+  onTagClick,
 }: ArticleLink) {
   // Use tags array if available, otherwise fall back to single category
   const displayTags = tags && tags.length > 0 ? tags : [category];
@@ -37,18 +40,43 @@ export default function Article({
           <div className="article-meta">
             <span className="article-date">{date}</span>
             <div className="article-tags">
-              {displayTags.map((tag, index) => (
-                <span key={index} className="article-category">{tag}</span>
-              ))}
+              {displayTags.map((tag, index) => {
+                if (!onTagClick) {
+                  return (
+                    <span key={index} className="article-category">{tag}</span>
+                  );
+                }
+                return (
+                  <button
+                    key={index}
+                    type="button"
+                    className="article-category"
+                    onClick={(event) => {
+                      event.preventDefault();
+                      event.stopPropagation();
+                      onTagClick(tag);
+                    }}
+                    onMouseEnter={(event) => {
+                      const preview = event.currentTarget.closest(".article-preview");
+                      preview?.classList.add("tag-hover");
+                    }}
+                    onMouseLeave={(event) => {
+                      const preview = event.currentTarget.closest(".article-preview");
+                      preview?.classList.remove("tag-hover");
+                    }}
+                    aria-label={`Filter by ${tag}`}
+                  >
+                    {tag}
+                  </button>
+                );
+              })}
             </div>
           </div>
           {/* Mobile image */}
           <div className="article-image-wrapper article-image-mobile mobile-only">
             <img className="article-image" src={image} alt={title} />
           </div>
-          <div className="article-description-box">
-            <p className="article-description">{description}</p>
-          </div>
+          <p className="article-description">{description}</p>
         </div>
         {/* Desktop image */}
         <div className="article-column image-col desktop-only">

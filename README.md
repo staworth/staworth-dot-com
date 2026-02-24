@@ -4,7 +4,7 @@ The official website for Staworth, a digital organization focused on governance 
 
 ## 🌐 Live Site
 
-Visit [staworth.com](https://staworth.com) or [staworth.org](https://staworth.org) to see the live application.
+Visit [staworth.com](https://staworth.com), [staworth.co.uk](https://staworth.co.uk) or [staworth.org](https://staworth.org) to see the live application.
 
 ## 📋 Table of Contents
 
@@ -100,7 +100,7 @@ pnpm dev
 ## 📜 Available Scripts
 
 | Command | Description |
-| ------- | ----------- |
+|---------|-------------|
 | `pnpm dev` | Start development server with Turbopack on port 3000 |
 | `pnpm build` | Build application for production |
 | `pnpm start` | Start production server |
@@ -111,7 +111,7 @@ pnpm dev
 ### Production Dependencies
 
 | Package | Version | Description |
-| ------- | ------- | ----------- |
+|---------|---------|-------------|
 | `next` | ^16.1.1 | React framework for production with SSR and static generation |
 | `react` | ^19.2.3 | JavaScript library for building user interfaces |
 | `react-dom` | ^19.2.3 | React package for DOM rendering |
@@ -119,7 +119,7 @@ pnpm dev
 ### Development Dependencies
 
 | Package | Version | Description |
-| ------- | ------- | ----------- |
+|---------|---------|-------------|
 | `@types/react` | ^19.2.7 | TypeScript type definitions for React |
 
 ## 🎨 Styling
