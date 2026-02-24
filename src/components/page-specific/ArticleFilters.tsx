@@ -21,11 +21,11 @@ interface ArticleFiltersProps {
 }
 
 const TAG_OPTIONS: FilterOption[] = [
-  { id: "beefy", label: "Beefy" },
   { id: "staworth", label: "Staworth" },
+  { id: "beefy", label: "Beefy" },
+  { id: "accountant quits", label: "Accountant Quits" },
   { id: "octav", label: "Octav" },
   { id: "kpk", label: "kpk" },
-  { id: "accountant quits", label: "Accountant Quits" },
 ];
 
 const YEAR_OPTIONS: FilterOption[] = [

@@ -475,7 +475,6 @@ a.link-preview:hover, a.link-preview:active{
     background-color: #cccccc21;
     margin: auto;
     padding: 20px;
-    padding-bottom: 0px;
     border-radius: 30px;
     margin-bottom: 35px;
     position: relative;
@@ -484,6 +483,7 @@ a.link-preview:hover, a.link-preview:active{
 .article-preview,
 .article-preview:link,
 .article-preview:visited {
+    border: solid #999 2px;
     pointer-events: auto;
     color: white;
     text-decoration: none;
@@ -492,7 +492,7 @@ a.link-preview:hover, a.link-preview:active{
 .article-preview:hover,
 .article-preview:active {
     color: white;
-    border-color: #03a70b;
+    border: solid #03a70b 2px;
 }
 
 .article-preview.tag-hover,
@@ -525,7 +525,9 @@ a.article-link:active {
 }
 
 .article-column {
-    width: 100%;
+    flex: 50%;
+    margin-right: 10px;
+    width: 50%;
     pointer-events: none;
 }
 
@@ -562,6 +564,7 @@ a.article-link:active {
 
 .article-tags {
     display: flex;
+    flex-wrap: wrap;
     gap: 8px;
     align-items: center;
     margin-left: auto;
@@ -609,7 +612,7 @@ a.article-link:active {
 
 .article-description {
     margin: 0;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 400;
     line-height: 1.55;
     color: white;
@@ -657,16 +660,17 @@ a.article-link:active {
     }
 
     .article-meta {
-        width: 100%;
-        margin: 10px 0px 20px 0px !important;
+        width: calc(100% - 40px);
+        margin: 10px 20px 20px 20px !important;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        justify-content: flex-start;
+        justify-content: space-between;
         align-items: center;
         text-align: left;
         gap: 10px;
-        padding-left: 20px;
+        padding: 0;
+        box-sizing: border-box;
     }
     .article-date{
         display: inline-block;
@@ -676,20 +680,20 @@ a.article-link:active {
         flex: 0 0 auto;
     }
     .article-tags {
-        margin-left: 0;
-        justify-content: flex-start;
+        margin-left: auto;
+        justify-content: flex-end;
     }
     .article-category{
         display: block;
     }
     .article-description {
-        width: 100%;
-        max-width: 85% !important;
-        font-size: auto !important;
-        margin: 20px auto !important;
+        width: auto;
+        max-width: none !important;
+        font-size: 14px !important;
+        margin: 0 !important;
         height: auto !important;
-        max-height: 90px !important;
-        border-radius: 16px;
+        max-height: none !important;
+        border-radius: 0;
         display: block;
     }
 
