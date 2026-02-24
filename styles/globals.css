@@ -481,15 +481,18 @@ a.link-preview:hover, a.link-preview:active{
     position: relative;
 }
 
-.article-preview, .article-preview:link, .article-preview:visited{
-    border: solid #999 2px;
+.article-preview,
+.article-preview:link,
+.article-preview:visited {
     pointer-events: auto;
     color: white;
     text-decoration: none;
 }
 
-.article-preview:hover, .article-preview:active{
-    border: solid #03a70b 2px;
+.article-preview:hover,
+.article-preview:active {
+    color: white;
+    border-color: #03a70b;
 }
 
 .article-preview.tag-hover,
@@ -504,49 +507,38 @@ a.link-preview:hover, a.link-preview:active{
     pointer-events: none;
 }
 
-.article-link{
+.article-link {
     padding: 10px;
 }
 
-a.article-link, a.article-link:link, a.article-link:visited{
+a.article-link,
+a.article-link:link,
+a.article-link:visited {
     color: white;
     text-decoration: none !important;
 }
 
-a.article-link:hover, a.article-link:active{
+a.article-link:hover,
+a.article-link:active {
     color: white;
     text-decoration: none !important;
 }
 
-.article-column{
-    flex: 50%;
-    margin-right:10px;
-    width: 50%;
+.article-column {
+    width: 100%;
     pointer-events: none;
 }
 
-.article-header{
-    vertical-align: top;
-    font-size: 17px;
-    font-weight: bold;
-    text-align: left;
-    margin-left: 20px;
-    height: 20px;
-    max-height: 60px;
-    pointer-events: none;
+.article-header {
+    margin: 6px 0 0 16px;
+    font-size: 21px;
+    font-weight: 800;
+    line-height: 1.1;
+    min-height: calc(1.1em * 2);
     color: white;
 }
 
-@media screen and (max-width: 842px) {
-    .article-header {
-        height: auto;
-        max-height: 60px;
-    }
-    
-}
-
-.article-meta{
-    width: auto;
+.article-meta {
     display: flex;
     flex-direction: row;
     gap: 20px;
@@ -570,7 +562,6 @@ a.article-link:hover, a.article-link:active{
 
 .article-tags {
     display: flex;
-    flex-wrap: wrap;
     gap: 8px;
     align-items: center;
     margin-left: auto;
@@ -608,83 +599,56 @@ a.article-link:hover, a.article-link:active{
     border-color: #03a70b;
 }
 
-.article-description{
-    min-height: 65px;
-    text-align: justify;
-    height: auto;
-    font-size: 14px;
-    background-color: black;
-    border-radius: 20px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
-    margin-bottom: 20px;
-    border: solid #444 2px;
+.article-description-box {
+    border: 1px solid rgba(153, 153, 153, 0.35);
+    border-radius: 14px;
+    padding: 14px 16px;
+    background: rgba(0, 0, 0, 0.7);
+    margin-bottom: 8px;
+}
+
+.article-description {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.55;
     color: white;
 }
 
-.article-image{
-    max-height: 195px;
-    width: 95%;
+.article-image {
+    width: 100%;
+    max-height: 220px;
     object-fit: cover;
-    border-radius: 20px;
-    border: solid #444 2px;
+    border-radius: 14px;
+    border: 1px solid rgba(153, 153, 153, 0.35);
 }
 
-@media screen and (max-width: 842px) {
-    .article-image {
-        object-fit: cover !important;
-        min-height: 200px !important;
-    }
+.mobile-only {
+    display: none;
 }
 
-
-@media screen and (min-width: 600px) {
-    .article-image-mobile,
-    .mobile-only {
-        display: none !important;
-    }
-}
-
-@media screen and (max-width: 600px) {
+@media (max-width: 700px) {
     .article-preview {
-        width: 80% !important;
-        min-width: 300px !important;
-        max-width: 510px !important;
-        margin: 20px auto !important;
-        padding: 20px !important;
-    }
-
-    .article-preview, .article-preview:link, .article-preview:visited{
-        border: solid white 2px !important;
-    }
-
-    .article-preview:hover, .article-preview:active{
-        border: solid #03a70b 2px !important;
+        width: min(90%, 510px);
+        margin: 20px auto;
+        padding: 18px;
     }
 
     .article-row {
-        display: block !important;
-        width: 100% !important;
-        margin: 0 !important;
+        grid-template-columns: 1fr;
     }
+
     .article-column {
-        width: 100% !important;
-        max-width: 100% !important;
         margin: 0 !important;
         padding: 0 !important;
-        display: block !important;
     }
 
     .article-header {
-        min-width: 250px;
-        max-width: 800px;
-        margin: 0 0 0 20px !important;
-        height: auto !important;
-        min-height: 0px !important; 
-        font-size: 18px !important;
+        margin: 0 0 0 16px;
+        min-height: 0;
+        font-size: 20px;
     }
+
     .article-meta {
         width: 100%;
         margin: 10px 0px 20px 0px !important;
@@ -719,33 +683,29 @@ a.article-link:hover, a.article-link:active{
         border-radius: 16px;
         display: block;
     }
+
     .article-image-wrapper {
-        width: 80%;
+        width: 100%;
         margin: 10px auto;
         display: block;
         float: none;
     }
+
     .article-image {
-        max-width: 490px !important;
         width: 100%;
-        height: auto;
         display: block;
-        margin: 0 auto 0 auto;
-        border-radius: 16px;
+        margin: 0 auto;
     }
-    .image-col, .desktop-only {
+
+    .image-col,
+    .desktop-only {
         display: none !important;
-        width: 0 !important;
-        max-width: 0 !important;
-        flex: 0 0 0 !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        background: none !important;
     }
 
     .mobile-only {
-    display: block !important;
-  }
+        display: block !important;
+        margin: 10px 0;
+    }
 }
 
 /* === Page Navigation Styles === */
@@ -1043,6 +1003,24 @@ a.article-link:hover, a.article-link:active{
     border: none;
     border-top: 1px solid #444;
     margin: 32px 0;
+}
+
+.leading-normal ul,
+.leading-normal ol {
+    margin-left: 0;
+    padding-left: 1.4em;
+    list-style-position: outside;
+}
+
+.leading-normal li {
+    padding-left: 0.2em;
+}
+
+.leading-normal ul ul,
+.leading-normal ul ol,
+.leading-normal ol ul,
+.leading-normal ol ol {
+    padding-left: 1.4em;
 }
 
 .leading-normal img {
@@ -1610,5 +1588,226 @@ a.portfolio-data:hover, a.portfolio-data:active{
 
     .article-header-title {
         font-size: 24px;
+    }
+}
+
+/* === Contact Page Styles === */
+.contact-main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px 30px 20px;
+}
+
+.contact-card {
+    background-color: #cccccc21;
+    border: 2px solid #999;
+    border-radius: 20px;
+    padding: 28px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.contact-label {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.contact-input,
+.contact-textarea {
+    width: 100%;
+    box-sizing: border-box;
+    background: #111;
+    color: white;
+    border: 1px solid #444;
+    border-radius: 14px;
+    padding: 12px 14px;
+    font-size: 15px;
+}
+
+.contact-textarea {
+    resize: none;
+    min-height: 160px;
+    max-height: 320px;
+    overflow-y: auto;
+}
+
+.contact-input:focus,
+.contact-textarea:focus {
+    outline: none;
+    border-color: #03a70b;
+}
+
+.contact-actions {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 12px;
+    margin-top: 4px;
+}
+
+.contact-button {
+    border: 2px solid #999;
+    background: black;
+    color: white;
+    border-radius: 999px;
+    padding: 10px 18px;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+}
+
+.contact-button:hover {
+    border-color: #03a70b;
+}
+
+.contact-button-loading {
+    position: relative;
+    isolation: isolate;
+    border-color: transparent;
+    overflow: hidden;
+}
+
+.contact-button-loading::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: inherit;
+    background: conic-gradient(
+        from 0deg,
+        transparent 0deg 300deg,
+        #03a70b 332deg 348deg,
+        transparent 360deg
+    );
+    animation: contact-border-spin 1.1s linear infinite;
+    z-index: -2;
+}
+
+.contact-button-loading::after {
+    content: "";
+    position: absolute;
+    inset: 2px;
+    border-radius: inherit;
+    background: black;
+    z-index: -1;
+}
+
+@keyframes contact-border-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.contact-button-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-privacy-note {
+    margin: 20px 2px 0 2px;
+    font-size: 12px;
+    color: #cfcfcf;
+}
+
+.contact-privacy-note a,
+.contact-privacy-note a:visited {
+    color: white;
+}
+
+.contact-privacy-note a:hover {
+    color: #03a70b;
+}
+
+.contact-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.contact-modal-card {
+    width: 100%;
+    max-width: 520px;
+    background: #111;
+    border: 2px solid #999;
+    border-radius: 20px;
+    padding: 24px;
+}
+
+.contact-modal-title {
+    margin: 0 0 10px 0;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.contact-modal-body {
+    margin: 0;
+    line-height: 1.5;
+    color: #e8e8e8;
+}
+
+.contact-modal-actions {
+    margin-top: 18px;
+    display: flex;
+    gap: 12px;
+}
+
+/* === Privacy Page Styles === */
+.privacy-main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px 30px 20px;
+}
+
+.privacy-card {
+    background-color: #cccccc21;
+    border: 2px solid #999;
+    border-radius: 20px;
+    padding: 30px;
+}
+
+.privacy-markdown {
+    font-size: 15px;
+    line-height: 1.6;
+    color: white;
+}
+
+.privacy-markdown h1,
+.privacy-markdown h2,
+.privacy-markdown h3 {
+    margin-top: 0;
+}
+
+.privacy-markdown a {
+    color: white;
+}
+
+.privacy-markdown a:hover {
+    color: #03a70b;
+}
+
+@media (max-width: 768px) {
+    .contact-card,
+    .privacy-card {
+        padding: 20px;
+    }
+
+    .contact-button {
+        text-align: center;
+    }
+
+    .contact-modal-card {
+        padding: 20px;
     }
 }
