@@ -7,7 +7,7 @@ short_description: "Panel appearance diving into the future of DAOs, and how the
 preview_image: "../../../public/images/articles/zebu-panel/cover.webp"
 header_media_type: "youtube"
 header_media_url: "https://www.youtube.com/embed/-v1DQbqn_LM?si=cCFOh4aD2LUb3mFy"
-keywords: ["Crypto Treasury Management", "Investment Policy Statement", "DAO Financial Reporting", "Non-custodial Asset Management", "Onchain Data Palatform"]
+keywords: ["decentralized autonomous organizations", "DAO governance", "decentralized governance models", "DAO delegate programs", "zebu live"]
 tags: [ beefy, staworth ]
 ---
 
