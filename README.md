@@ -4,7 +4,7 @@ The official website for Staworth, a digital organization focused on governance 
 
 ## 🌐 Live Site
 
-Visit [staworth.com](https://staworth.com) or [staworth.org](https://staworth.org) to see the live application.
+Visit [staworth.com](https://staworth.com), [staworth.co.uk](https://staworth.co.uk) or [staworth.org](https://staworth.org) to see the live application.
 
 ## 📋 Table of Contents
 
