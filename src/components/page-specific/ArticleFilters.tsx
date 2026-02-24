@@ -25,6 +25,7 @@ const TAG_OPTIONS: FilterOption[] = [
   { id: "beefy", label: "Beefy" },
   { id: "accountant quits", label: "Accountant Quits" },
   { id: "octav", label: "Octav" },
+  { id: "nexus", label: "Nexus" },
   { id: "kpk", label: "kpk" },
 ];
 
