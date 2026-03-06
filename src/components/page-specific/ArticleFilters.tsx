@@ -23,6 +23,7 @@ interface ArticleFiltersProps {
 const TAG_OPTIONS: FilterOption[] = [
   { id: "staworth", label: "Staworth" },
   { id: "beefy", label: "Beefy" },
+  { id: "qidao", label: "QiDao" },
   { id: "accountant quits", label: "Accountant Quits" },
   { id: "octav", label: "Octav" },
   { id: "kpk", label: "kpk" },

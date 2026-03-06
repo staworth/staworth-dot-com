@@ -65,7 +65,7 @@ export function getArticlePreviews(): ArticlePreview[] {
     const previewImage = normalizePublicPath(data.preview_image ?? data.header_image);
 
     return {
-      link: `https://www.staworth.com/articles/${slug}`,
+      link: data.external_url || `https://www.staworth.com/articles/${slug}`,
       title: data.title || slug,
       date: formatDate(data.date),
       category: deriveCategory(data.tags),

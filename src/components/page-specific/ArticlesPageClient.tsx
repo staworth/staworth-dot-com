@@ -13,7 +13,7 @@ import PageNavigation from "../page-general/PageNavigation";
 import ArticleSubscribe from "./ArticleSubscribe";
 import ArticleFilters from "./ArticleFilters";
 
-const VALID_TAGS = new Set(["beefy", "staworth", "octav", "kpk", "accountant quits"]);
+const VALID_TAGS = new Set(["staworth", "beefy", "accountant quits", "octav", "qidao", "kpk"]);
 const VALID_YEARS = new Set(["2023", "2024", "2025", "2026"]);
 const VALID_TYPES = new Set(["article", "video", "link"]);
 

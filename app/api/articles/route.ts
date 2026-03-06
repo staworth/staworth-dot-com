@@ -27,7 +27,7 @@ export async function GET() {
         const tags = data.tags?.map((tag: string) => tag.toUpperCase()) || ['ARTICLE'];
 
         return {
-          href: `/articles/${slug}`,
+          href: data.external_url || `/articles/${slug}`,
           title: data.title || slug,
           date: data.date ? formatDate(data.date) : formatDate(new Date().toISOString()),
           category: tags[0],
