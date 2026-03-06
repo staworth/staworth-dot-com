@@ -47,6 +47,10 @@ function deriveCategory(tags: unknown): string {
     .map((tag) => String(tag).toLowerCase().trim())
     .filter(Boolean);
 
+  if (normalizedTags.includes("qidao")) {
+    return "QIDAO";
+  }
+
   if (normalizedTags.includes("beefy")) {
     return "BEEFY";
   }

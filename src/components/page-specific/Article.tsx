@@ -4,7 +4,8 @@ export type ArticleLink = {
   href: string;
   title: string;
   date: string;
-  category: string;
+  category?: string;
+  categories?: string[];
   tags?: string[];
   description: string;
   image: string;
@@ -17,13 +18,21 @@ export default function Article({
   title,
   date,
   category,
+  categories,
   tags,
   description,
   image,
   onTagClick,
 }: ArticleLink) {
-  // Use tags array if available, otherwise fall back to single category
-  const displayTags = tags && tags.length > 0 ? tags : [category];
+  // Prefer explicit tags, then API categories, then legacy single category.
+  const displayTags =
+    tags && tags.length > 0
+      ? tags
+      : categories && categories.length > 0
+        ? categories
+        : category
+          ? [category]
+          : ["ARTICLE"];
   // Check if it's an internal link (starts with /)
   const isInternal = href.startsWith('/');
 

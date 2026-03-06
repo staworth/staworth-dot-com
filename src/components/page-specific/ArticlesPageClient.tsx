@@ -40,11 +40,24 @@ export default function ArticlesPageClient() {
         // Fetch API articles
         const apiResponse = await fetch("https://api.staworth.com/articles");
         const apiData = await apiResponse.json();
-        const apiArticles = apiData.map((item: any) => ({
-          ...item,
-          href: item.link,
-          headerMediaType: null,
-        }));
+        const apiArticles = apiData.map((item: any) => {
+          const categories = Array.isArray(item.categories)
+            ? item.categories
+            : typeof item.category === "string" && item.category.trim().length > 0
+              ? [item.category]
+              : Array.isArray(item.tags)
+                ? item.tags
+                : [];
+
+          return {
+            ...item,
+            href: item.link,
+            headerMediaType: null,
+            categories,
+            tags: Array.isArray(item.tags) && item.tags.length > 0 ? item.tags : categories,
+            category: typeof item.category === "string" ? item.category : categories[0] ?? "ARTICLE",
+          };
+        });
 
         // Fetch markdown-based articles
         const mdResponse = await fetch("/api/articles");
@@ -173,7 +186,14 @@ export default function ArticlesPageClient() {
   }, [selectedTags, selectedYears, selectedTypes, searchQuery, page, router, searchParamsString, pathname, loading]);
 
   const filteredLinks = links.filter((article) => {
-    const tagCandidates = article.tags && article.tags.length > 0 ? article.tags : [article.category];
+    const tagCandidates =
+      article.tags && article.tags.length > 0
+        ? article.tags
+        : article.categories && article.categories.length > 0
+          ? article.categories
+          : article.category
+            ? [article.category]
+            : [];
     const normalizedTags = tagCandidates.map((tag) => tag.toLowerCase());
 
     const date = new Date(article.date);
@@ -194,7 +214,8 @@ export default function ArticlesPageClient() {
       article.title,
       article.description,
       ...(article.tags ?? []),
-      article.category,
+      ...(article.categories ?? []),
+      article.category ?? "",
     ]
       .join(" ")
       .toLowerCase();
