@@ -74,6 +74,11 @@ export default function PortfolioPage() {
   const coreAssetsRows: any[] = [];
 
   Object.entries(data.positions).forEach(([key, position]: [string, any]) => {
+    const positionValue = Number(position.value);
+    if (!Number.isFinite(positionValue) || positionValue <= 0) {
+      return;
+    }
+
     const normalizedKey = key.toLowerCase();
     const displayOverride = CORE_ASSET_DISPLAY_OVERRIDES[normalizedKey] || {};
     const row = {
@@ -84,7 +89,7 @@ export default function PortfolioPage() {
       thesisUrl: "",
       delegateUrl: DELEGATE_PLATFORMS[key] || "",
       balance: position.balance,
-      value: position.value,
+      value: positionValue,
     };
 
     const positionType =
