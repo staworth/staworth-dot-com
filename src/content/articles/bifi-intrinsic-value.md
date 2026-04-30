@@ -176,7 +176,7 @@ In our opinion, the underlying operations of Beefy are so far away from this con
 
 **It’s our job to make Beefy’s intrinsic value as clear as we possibly can for holders.**
 
-![Generated cartoon image of a cow looking to a new dawn.](../../../public/images/articles/bifi-intrinsic-value/court.webp)
+![Generated cartoon image of a cow looking to a new dawn.](../../../public/images/articles/bifi-intrinsic-value/dawn.webp)
 
 ## A New Dawn
 
