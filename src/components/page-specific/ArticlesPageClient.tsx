@@ -13,7 +13,7 @@ import PageNavigation from "../page-general/PageNavigation";
 import ArticleSubscribe from "./ArticleSubscribe";
 import ArticleFilters from "./ArticleFilters";
 
-const VALID_TAGS = new Set(["staworth", "beefy", "accountant quits", "octav", "qidao", "kpk"]);
+const VALID_TAGS = new Set(["staworth", "beefy", "ocf institute", "octav", "qidao", "KPK"]);
 const VALID_YEARS = new Set(["2023", "2024", "2025", "2026"]);
 const VALID_TYPES = new Set(["article", "video", "link"]);
 
@@ -122,8 +122,9 @@ export default function ArticlesPageClient() {
     const rawValues = parsedParams.getAll(key);
     const splitValues = rawValues.flatMap((value) => value.split(","));
     const normalized = splitValues
-      .map((value) => value.trim().toLowerCase())
-      .filter((value) => value && allowed.has(value));
+      .map((value) => value.trim())
+      .map((value) => Array.from(allowed).find((allowedValue) => allowedValue.toLowerCase() === value.toLowerCase()))
+      .filter((value): value is string => Boolean(value));
     return normalizeList(normalized);
   };
 
@@ -199,7 +200,7 @@ export default function ArticlesPageClient() {
     const date = new Date(article.date);
     const year = Number.isNaN(date.getTime()) ? null : String(date.getFullYear());
 
-    const tagMatch = selectedTags.length === 0 || selectedTags.some((tag) => normalizedTags.includes(tag));
+    const tagMatch = selectedTags.length === 0 || selectedTags.some((tag) => normalizedTags.includes(tag.toLowerCase()));
     const yearMatch = selectedYears.length === 0 || (year ? selectedYears.includes(year) : false);
     const isInternal = article.href.startsWith("/");
     const mediaType = (article.headerMediaType ?? "").toLowerCase();

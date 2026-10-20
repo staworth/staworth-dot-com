@@ -8,7 +8,7 @@ preview_image: "../../../public/images/articles/accountant-quits-interview/cover
 header_media_type: "youtube"
 header_media_url: "https://www.youtube.com/embed/fYO8sfvlp30?si=nJTn6NihvVj_9Rgm"
 keywords: ["Crypto Treasury Management", "Investment Policy Statement", "DAO Financial Reporting", "Non-custodial Asset Management", "Onchain Data Palatform"]
-tags: [ accountant quits, kpk ]
+tags: [ ocf institute, KPK ]
 ---
 
 In July 2025, we appeared on The Accountant Quits podcast for Episode 93 — a deep dive into onchain treasury management, Investment Policy Statements (IPS), non‑custodial asset management, and DAO financial reporting. Below is our executive summary of the conversation and its key takeaways.

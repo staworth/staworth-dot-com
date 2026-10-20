@@ -8,7 +8,7 @@ preview_image: "../../../public/images/articles/diligence-curated-lending/cover.
 header_media_type: "youtube"
 header_media_url: "https://www.youtube.com/embed/HxR5_UlGZws?si=9skZ2QUc60Q0ujhT"
 keywords: ["Crypto Treasury Management", "DeFi Due Diligence", "Curated Lending Markets", "Stream Finance"]
-tags: [ staworth, accountant quits ]
+tags: [ staworth, ocf institute ]
 ---
 
 In November 2025, we were honoured to join the inaugural [Crypto Treasury Management Academy](https://www.theaccountantquits.com/crypto-treasury-management-academy) hosted by The Accountant Quits. We served as a guest instructor for 2 sessions on investment policy and capital allocation, highlighting everything from effective risk management to capital deployment and transparent reporting.

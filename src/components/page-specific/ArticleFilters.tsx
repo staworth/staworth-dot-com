@@ -24,9 +24,9 @@ const TAG_OPTIONS: FilterOption[] = [
   { id: "staworth", label: "Staworth" },
   { id: "beefy", label: "Beefy" },
   { id: "qidao", label: "QiDao" },
-  { id: "accountant quits", label: "Accountant Quits" },
+  { id: "ocf institute", label: "OCF Institute" },
   { id: "octav", label: "Octav" },
-  { id: "kpk", label: "kpk" },
+  { id: "KPK", label: "KPK" },
 ];
 
 const YEAR_OPTIONS: FilterOption[] = [
