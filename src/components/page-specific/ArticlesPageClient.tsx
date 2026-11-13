@@ -37,9 +37,23 @@ export default function ArticlesPageClient() {
 
     const fetchArticles = async () => {
       try {
-        // Fetch API articles
-        const apiResponse = await fetch("https://api.staworth.com/articles");
-        const apiData = await apiResponse.json();
+        const loadJson = async (url: string) => {
+          try {
+            const response = await fetch(url);
+            if (!response.ok) throw new Error(`Request failed: ${response.status}`);
+            return await response.json();
+          } catch (error) {
+            console.error(`Failed to fetch articles from ${url}:`, error);
+            return [];
+          }
+        };
+
+        const [apiData, mdArticles, beefyData] = await Promise.all([
+          loadJson("https://api.staworth.com/articles"),
+          loadJson("/api/articles"),
+          loadJson("/api/beefy-articles"),
+        ]);
+
         const apiArticles = apiData.map((item: any) => {
           const categories = Array.isArray(item.categories)
             ? item.categories
@@ -59,23 +73,38 @@ export default function ArticlesPageClient() {
           };
         });
 
-        // Fetch markdown-based articles
-        const mdResponse = await fetch("/api/articles");
-        const mdArticles = await mdResponse.json();
-
         // Extract titles from markdown articles for deduplication
         const mdTitles = new Set(
           mdArticles.map((article: ArticleLink) => article.title.toLowerCase().trim())
         );
 
+        const beefyArticlesFromSource = Array.isArray(beefyData) ? beefyData as ArticleLink[] : [];
+        const normalizedHref = (href: string) => href.replace(/\/+$/, "").toLowerCase();
+        const mdTitleSet = new Set(mdTitles);
+        const beefyArticles = beefyArticlesFromSource
+          .filter((article) => !mdTitleSet.has(article.title.toLowerCase().trim()))
+          .map((article) => {
+            const existingApiArticle = apiArticles.find(
+              (apiArticle: ArticleLink) => normalizedHref(apiArticle.href) === normalizedHref(article.href),
+            );
+            const categories = Array.from(new Set([
+              ...(article.categories ?? article.tags ?? []),
+              ...(existingApiArticle?.categories ?? existingApiArticle?.tags ?? []),
+            ]));
+            return { ...article, categories, tags: categories };
+          });
+        const beefyHrefs = new Set(beefyArticlesFromSource.map((article) => normalizedHref(article.href)));
+        const beefyTitles = new Set(beefyArticlesFromSource.map((article) => article.title.toLowerCase().trim()));
+
         // Filter out API articles that have the same title as markdown articles
         const filteredApiArticles = apiArticles.filter((article: any) => {
-          // Keep only if title is not in markdown articles
-          return !mdTitles.has(article.title.toLowerCase().trim());
+          const title = article.title.toLowerCase().trim();
+          return !mdTitles.has(title)
+            && !beefyTitles.has(title)
+            && !beefyHrefs.has(normalizedHref(article.href));
         });
 
-        // Combine filtered API articles with markdown articles and sort by date (newest first)
-        const allArticles = [...filteredApiArticles, ...mdArticles].sort((a, b) => {
+        const allArticles = [...filteredApiArticles, ...beefyArticles, ...mdArticles].sort((a, b) => {
           const dateA = new Date(a.date).getTime();
           const dateB = new Date(b.date).getTime();
           return dateB - dateA;
