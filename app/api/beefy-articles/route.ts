@@ -4,6 +4,7 @@ export const revalidate = 3600;
 
 const BEEFY_ORIGIN = "https://beefy.com";
 const BEEFY_PAGE_DATA_URL = `${BEEFY_ORIGIN}/page-data/articles`;
+const ARTICLE_CUTOFF = Date.UTC(2024, 2, 1);
 
 type GatsbyImage = {
   childImageSharp?: {
@@ -74,6 +75,8 @@ export async function GET() {
         const slug = node?.fields?.slug;
         const data = node?.frontmatter;
         if (!slug || !data?.title || !data.date) return [];
+        const publishedAt = new Date(data.date).getTime();
+        if (Number.isNaN(publishedAt) || publishedAt < ARTICLE_CUTOFF) return [];
 
         return [{
           href: `${BEEFY_ORIGIN}/articles/${slug}/`,
